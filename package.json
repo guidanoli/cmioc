@@ -1,14 +1,14 @@
 {
-  "name": "decoding-inputs-and-outputs",
-  "version": "1.0.0",
-  "description": "",
+  "name": "@guidanoli/decoding-inputs-and-outputs",
+  "version": "0.1.0",
+  "description": "Decoding input and outputs for Cartesi Rollups SDK v2",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["cartesi"],
+  "author": "Guilherme Dantas",
+  "license": "GPL-v3-only",
   "dependencies": {
     "@cartesi/rollups": "2.0.0-rc.1"
   }
