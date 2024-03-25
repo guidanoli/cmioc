@@ -15,6 +15,7 @@
     "@cartesi/rollups": "2.0.0-rc.1"
   },
   "devDependencies": {
+    "@jest/globals": "^29.7.0",
     "ethers": "^6.11.1",
     "jest": "^29.7.0",
     "ts-jest": "^29.1.2",
