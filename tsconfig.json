@@ -1,0 +1,7 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "moduleResolution": "nodenext",
+    "target": "ES2020"
+  }
+}
