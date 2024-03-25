@@ -4,7 +4,7 @@
   "description": "Decoding input and outputs for Cartesi Rollups SDK v2",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [
     "cartesi"
