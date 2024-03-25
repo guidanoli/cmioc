@@ -3,3 +3,25 @@ lockfileVersion: '6.0'
 settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
+
+dependencies:
+  '@cartesi/rollups':
+    specifier: 2.0.0-rc.1
+    version: 2.0.0-rc.1
+
+packages:
+
+  /@cartesi/rollups@2.0.0-rc.1:
+    resolution: {integrity: sha512-shNTfgN+550RaDhOcor0xoRUjc/AT31H5/nXE2QbgzAbT77fv9cEeHWqK3JUeJB9qj4PmeTQB+eVdfeoGosh2w==}
+    dependencies:
+      '@cartesi/util': 6.1.0
+      '@openzeppelin/contracts': 5.0.0
+    dev: false
+
+  /@cartesi/util@6.1.0:
+    resolution: {integrity: sha512-j92nSoMHCyu6h7nZgn+MeXjkp8oa1Cy6qaImyxVXmPN2Rcqzl/TkWm/RkhbODU9rh4U3OuUteYqKRjefI3/XIQ==}
+    dev: false
+
+  /@openzeppelin/contracts@5.0.0:
+    resolution: {integrity: sha512-bv2sdS6LKqVVMLI5+zqnNrNU/CA+6z6CmwFXm/MzmOPBRSO5reEJN7z0Gbzvs0/bv/MZZXNklubpwy3v2+azsw==}
+    dev: false
