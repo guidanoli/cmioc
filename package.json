@@ -1,7 +1,7 @@
 {
     "name": "@guidanoli/io-decoder",
     "version": "0.1.0",
-    "description": "Decoding input and outputs for Cartesi Rollups SDK v2",
+    "description": "Decodes inputs and outputs for Cartesi Rollups SDK v2",
     "main": "index.js",
     "scripts": {
         "format": "prettier --check . --write",
