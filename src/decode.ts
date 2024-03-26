@@ -2,7 +2,7 @@ import { Inputs__factory, Outputs__factory } from "@cartesi/rollups";
 
 import { decodeFunctionData, Hex, Address } from 'viem'
 
-export interface InputFields {
+export interface Input {
     chainId: bigint
     appContract: Address
     msgSender: Address
@@ -12,7 +12,7 @@ export interface InputFields {
     payload: Hex
 }
 
-export const decodeInputBlob = (blob : Hex) : InputFields => {
+export const decodeInputBlob = (blob : Hex) : Input => {
 
     const { functionName, args } = decodeFunctionData({
         abi: Inputs__factory.abi,
@@ -47,24 +47,24 @@ export const decodeInputBlob = (blob : Hex) : InputFields => {
     }
 }
 
-export interface VoucherFields {
+export interface Voucher {
     type: "voucher";
     destination: Address;
     value: bigint;
     payload: Hex;
 }
 
-export interface NoticeFields {
+export interface Notice {
     type: "notice";
     payload: Hex
 }
 
-export type OutputFields =
-    | VoucherFields
-    | NoticeFields
+export type Output =
+    | Voucher
+    | Notice
     ;
 
-export const decodeOutputBlob = (blob : Hex) : OutputFields => {
+export const decodeOutputBlob = (blob : Hex) : Output => {
 
     const { functionName, args } = decodeFunctionData({
         abi: Outputs__factory.abi,
