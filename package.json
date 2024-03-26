@@ -15,7 +15,11 @@
         "url": "https://github.com/guidanoli/io-decoder/issues"
     },
     "license": "GPL-v3-only",
-    "author": "Guilherme Dantas",
+    "author": {
+        "name": "Guilherme Dantas",
+        "e-mail": "guidanoli@proton.me",
+        "url": "https://github.com/guidanoli"
+    },
     "main": "index.js",
     "scripts": {
         "format": "prettier --check . --write",
