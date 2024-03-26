@@ -39,6 +39,36 @@ describe("decode", () => {
         expect(input.payload).toEqual("0x");
     });
 
+    test("notice", () => {
+        const output = decodeOutputBlob(
+            "0xc258d6e500000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000004deadbeef00000000000000000000000000000000000000000000000000000000",
+        );
+
+        switch (output.type) {
+            case "notice": {
+                expect(output.payload).toEqual("0xdeadbeef");
+                break;
+            }
+            default:
+                throw new Error("expected output to be a notice");
+        }
+    });
+
+    test("notice with empty payload", () => {
+        const output = decodeOutputBlob(
+            "0xc258d6e500000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000",
+        );
+
+        switch (output.type) {
+            case "notice": {
+                expect(output.payload).toEqual("0x");
+                break;
+            }
+            default:
+                throw new Error("expected output to be a notice");
+        }
+    });
+
     test("voucher", () => {
         const output = decodeOutputBlob(
             "0x237a816f000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000de0b6b3a764000000000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000003fafafa0000000000000000000000000000000000000000000000000000000000",
@@ -74,36 +104,6 @@ describe("decode", () => {
             }
             default:
                 throw new Error("expected output to be a voucher");
-        }
-    });
-
-    test("notice", () => {
-        const output = decodeOutputBlob(
-            "0xc258d6e500000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000004deadbeef00000000000000000000000000000000000000000000000000000000",
-        );
-
-        switch (output.type) {
-            case "notice": {
-                expect(output.payload).toEqual("0xdeadbeef");
-                break;
-            }
-            default:
-                throw new Error("expected output to be a notice");
-        }
-    });
-
-    test("notice with empty payload", () => {
-        const output = decodeOutputBlob(
-            "0xc258d6e500000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000",
-        );
-
-        switch (output.type) {
-            case "notice": {
-                expect(output.payload).toEqual("0x");
-                break;
-            }
-            default:
-                throw new Error("expected output to be a notice");
         }
     });
 });

@@ -45,6 +45,11 @@ export const decodeInputBlob = (blob: Hex): Input => {
     }
 };
 
+export interface Notice {
+    type: "notice";
+    payload: Hex;
+}
+
 export interface Voucher {
     type: "voucher";
     destination: Address;
@@ -52,12 +57,7 @@ export interface Voucher {
     payload: Hex;
 }
 
-export interface Notice {
-    type: "notice";
-    payload: Hex;
-}
-
-export type Output = Voucher | Notice;
+export type Output = Notice | Voucher;
 
 export const decodeOutputBlob = (blob: Hex): Output => {
     const { functionName, args } = decodeFunctionData({
