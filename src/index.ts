@@ -147,11 +147,3 @@ export const decodeOutputBlob = (blob: Hex): Output => {
         }
     }
 };
-
-export const parseBlob = (blob: string): Hex => {
-    if (isHex(blob)) {
-        return blob;
-    } else {
-        throw new Error("blob is not in '0x' hex format");
-    }
-};
