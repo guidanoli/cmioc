@@ -1,6 +1,12 @@
 import { Inputs__factory, Outputs__factory } from "@cartesi/rollups";
 
-import { decodeFunctionData, Hex, Address, isHex } from "viem";
+import {
+    encodeFunctionData,
+    decodeFunctionData,
+    Hex,
+    Address,
+    isHex,
+} from "viem";
 
 export interface Input {
     chainId: bigint;
@@ -11,6 +17,34 @@ export interface Input {
     index: bigint;
     payload: Hex;
 }
+
+export const encodeInputBlob = (input: Input): Hex => {
+    const {
+        chainId,
+        appContract,
+        msgSender,
+        blockNumber,
+        blockTimestamp,
+        index,
+        payload,
+    } = input;
+
+    const blob = encodeFunctionData({
+        abi: Inputs__factory.abi,
+        functionName: "EvmAdvance",
+        args: [
+            chainId,
+            appContract,
+            msgSender,
+            blockNumber,
+            blockTimestamp,
+            index,
+            payload,
+        ],
+    });
+
+    return blob;
+};
 
 export const decodeInputBlob = (blob: Hex): Input => {
     const { functionName, args } = decodeFunctionData({
