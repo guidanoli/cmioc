@@ -11,6 +11,9 @@
         "codec"
     ],
     "homepage": "https://github.com/guidanoli/io-decoder",
+    "bugs": {
+        "url": "https://github.com/guidanoli/io-decoder/issues"
+    },
     "main": "index.js",
     "scripts": {
         "format": "prettier --check . --write",
