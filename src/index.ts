@@ -93,6 +93,33 @@ export interface Voucher {
 
 export type Output = Notice | Voucher;
 
+export const encodeOutputBlob = (output: Output): Hex => {
+    switch (output.type) {
+        case "notice": {
+            const { payload } = output;
+
+            const blob = encodeFunctionData({
+                abi: Outputs__factory.abi,
+                functionName: "Notice",
+                args: [payload],
+            });
+
+            return blob;
+        }
+        case "voucher": {
+            const { destination, value, payload } = output;
+
+            const blob = encodeFunctionData({
+                abi: Outputs__factory.abi,
+                functionName: "Voucher",
+                args: [destination, value, payload],
+            });
+
+            return blob;
+        }
+    }
+};
+
 export const decodeOutputBlob = (blob: Hex): Output => {
     const { functionName, args } = decodeFunctionData({
         abi: Outputs__factory.abi,
