@@ -1,13 +1,11 @@
 {
-    "name": "@guidanoli/io-decoder",
+    "name": "@guidanoli/cmioc",
     "version": "0.1.0",
-    "description": "Decodes inputs and outputs for Cartesi Rollups SDK v2",
+    "description": "Cartesi Machine Input/Output Codec",
     "keywords": [
         "cartesi",
         "rollups",
         "solidity",
-        "encoding",
-        "decoding",
         "codec"
     ],
     "homepage": "https://github.com/guidanoli/io-decoder",
@@ -26,8 +24,7 @@
     "main": "dist/src/index.js",
     "types": "dist/src/index.d.ts",
     "bin": {
-        "decode-input": "dist/bin/decode-input.js",
-        "decode-output": "dist/bin/decode-output.js"
+        "cmioc": "dist/bin/cmioc.js"
     },
     "scripts": {
         "decode-input": "ts-node bin/decode-input.ts",

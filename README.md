@@ -17,19 +17,19 @@ pnpm i
 
 ## CLI
 
-This package comes with two CLI tools: `decode-input` and `decode-output`.
+This package comes with a CLI tool called `cmioc`, which stands for "Cartesi Machine Input/Output Codec".
 Locally, you can run them with the following commands:
 
 ## Decoding inputs
 
 ```sh
-pnpm decode-input <INPUT_BLOB>
+pnpm cmioc decode input <INPUT_BLOB>
 ```
 
 ## Decoding outputs
 
 ```sh
-pnpm decode-output <OUTPUT_BLOB>
+pnpm cmioc decode output <OUTPUT_BLOB>
 ```
 
 ## Tests
