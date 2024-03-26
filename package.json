@@ -30,6 +30,8 @@
         "decode-output": "dist/bin/decode-output.js"
     },
     "scripts": {
+        "decode-input": "ts-node bin/decode-input.ts",
+        "decode-output": "ts-node bin/decode-output.ts",
         "format": "prettier --check . --write",
         "prepack": "tsc",
         "test": "jest"
