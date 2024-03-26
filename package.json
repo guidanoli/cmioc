@@ -30,8 +30,8 @@
         "decode-output": "dist/bin/decode-output.js"
     },
     "scripts": {
-        "prepack": "tsc",
         "format": "prettier --check . --write",
+        "prepack": "tsc",
         "test": "jest"
     },
     "dependencies": {
