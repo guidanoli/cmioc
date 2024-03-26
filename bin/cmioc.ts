@@ -1,7 +1,7 @@
 import { Command, InvalidArgumentError } from "@commander-js/extra-typings";
 import { Address, BaseError, Hex, isAddress, isHex } from "viem";
 
-import { encodeInputBlob, decodeInputBlob, decodeOutputBlob } from "../src";
+import { encodeInputBlob, encodeOutputBlob, decodeInputBlob, decodeOutputBlob } from "../src";
 
 const program = new Command();
 
@@ -60,6 +60,30 @@ encodeCommand
     .requiredOption("--payload <bytes>", "the payload of the input", parseBlob)
     .action((input) => {
         console.log(encodeInputBlob(input));
+    });
+
+encodeCommand
+    .command("voucher")
+    .description("Encodes a voucher blob")
+    .requiredOption("--destination <address>", "the destination address", parseAddress)
+    .requiredOption("--value <uint256>", "the amount of Wei to be passed along the call", parseBigInt)
+    .requiredOption("--payload <bytes>", "the destination address", parseBlob)
+    .action((voucher) => {
+        console.log(encodeOutputBlob({
+            type: "voucher",
+            ...voucher
+        }));
+    });
+
+encodeCommand
+    .command("notice")
+    .description("Encodes a notice blob")
+    .requiredOption("--payload <bytes>", "the destination address", parseBlob)
+    .action((notice) => {
+        console.log(encodeOutputBlob({
+            type: "notice",
+            ...notice
+        }));
     });
 
 const decodeCommand = program.command("decode");
