@@ -23,7 +23,8 @@
     "files": [
         "dist"
     ],
-    "main": "index.js",
+    "main": "dist/src/index.js",
+    "types": "dist/src/index.d.ts",
     "scripts": {
         "prepack": "tsc",
         "format": "prettier --check . --write",
