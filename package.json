@@ -25,6 +25,10 @@
     ],
     "main": "dist/src/index.js",
     "types": "dist/src/index.d.ts",
+    "bin": {
+        "decode-input": "dist/bin/decode-input.js",
+        "decode-output": "dist/bin/decode-output.js"
+    },
     "scripts": {
         "prepack": "tsc",
         "format": "prettier --check . --write",
