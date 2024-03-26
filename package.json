@@ -10,6 +10,7 @@
         "decoding",
         "codec"
     ],
+    "homepage": "https://github.com/guidanoli/io-decoder",
     "main": "index.js",
     "scripts": {
         "format": "prettier --check . --write",
