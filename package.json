@@ -14,13 +14,13 @@
     "bugs": {
         "url": "https://github.com/guidanoli/io-decoder/issues"
     },
+    "license": "GPL-v3-only",
     "main": "index.js",
     "scripts": {
         "format": "prettier --check . --write",
         "test": "jest"
     },
     "author": "Guilherme Dantas",
-    "license": "GPL-v3-only",
     "dependencies": {
         "@cartesi/rollups": "2.0.0-rc.1"
     },
