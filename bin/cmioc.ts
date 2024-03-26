@@ -42,6 +42,10 @@ const parseBlob = (blob: string): Hex => {
     }
 };
 
+const stringifyBigInt = (_k: any, v: any) => {
+    return typeof v === 'bigint' ? v.toString() : v;
+}
+
 program.name("cmioc").version("0.1.0").description("Cartesi Machine I/O Codec");
 
 const encodeCommand = program.command("encode");
@@ -97,7 +101,7 @@ decodeCommand
     .action((blob) => {
         try {
             const input = decodeInputBlob(blob);
-            console.log(input);
+            console.log(JSON.stringify(input, stringifyBigInt));
         } catch (e) {
             handleError(e);
         }
@@ -110,7 +114,7 @@ decodeCommand
     .action((blob) => {
         try {
             const output = decodeOutputBlob(blob);
-            console.log(output);
+            console.log(JSON.stringify(output, stringifyBigInt));
         } catch (e) {
             handleError(e);
         }
