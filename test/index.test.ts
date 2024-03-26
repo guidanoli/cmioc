@@ -1,4 +1,4 @@
-import { decodeInputBlob, decodeOutputBlob } from "../src/decode";
+import { decodeInputBlob, decodeOutputBlob } from "../src";
 
 import { describe, expect, test } from "@jest/globals";
 
