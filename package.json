@@ -1,26 +1,27 @@
 {
-  "name": "@guidanoli/decoding-inputs-and-outputs",
-  "version": "0.1.0",
-  "description": "Decoding input and outputs for Cartesi Rollups SDK v2",
-  "main": "index.js",
-  "scripts": {
-    "test": "jest"
-  },
-  "keywords": [
-    "cartesi"
-  ],
-  "author": "Guilherme Dantas",
-  "license": "GPL-v3-only",
-  "dependencies": {
-    "@cartesi/rollups": "2.0.0-rc.1"
-  },
-  "devDependencies": {
-    "@jest/globals": "^29.7.0",
-    "ethers": "^6.11.1",
-    "jest": "^29.7.0",
-    "prettier": "^3.2.5",
-    "ts-jest": "^29.1.2",
-    "ts-node": "^10.9.2",
-    "viem": "^2.9.0"
-  }
+    "name": "@guidanoli/decoding-inputs-and-outputs",
+    "version": "0.1.0",
+    "description": "Decoding input and outputs for Cartesi Rollups SDK v2",
+    "main": "index.js",
+    "scripts": {
+        "format": "prettier --check . --write",
+        "test": "jest"
+    },
+    "keywords": [
+        "cartesi"
+    ],
+    "author": "Guilherme Dantas",
+    "license": "GPL-v3-only",
+    "dependencies": {
+        "@cartesi/rollups": "2.0.0-rc.1"
+    },
+    "devDependencies": {
+        "@jest/globals": "^29.7.0",
+        "ethers": "^6.11.1",
+        "jest": "^29.7.0",
+        "prettier": "^3.2.5",
+        "ts-jest": "^29.1.2",
+        "ts-node": "^10.9.2",
+        "viem": "^2.9.0"
+    }
 }
