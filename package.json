@@ -20,8 +20,12 @@
         "e-mail": "guidanoli@proton.me",
         "url": "https://github.com/guidanoli"
     },
+    "files": [
+        "dist"
+    ],
     "main": "index.js",
     "scripts": {
+        "prepack": "tsc",
         "format": "prettier --check . --write",
         "test": "jest"
     },

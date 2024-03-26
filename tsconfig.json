@@ -1,7 +1,13 @@
 {
     "compilerOptions": {
+        "composite": true,
         "esModuleInterop": true,
+        "module": "nodenext",
         "moduleResolution": "nodenext",
+        "outDir": "dist",
+        "skipLibCheck": true,
+        "strict": true,
         "target": "ES2020"
-    }
+    },
+    "include": ["src"]
 }
