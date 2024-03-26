@@ -2,11 +2,6 @@
     "name": "@guidanoli/io-decoder",
     "version": "0.1.0",
     "description": "Decodes inputs and outputs for Cartesi Rollups SDK v2",
-    "main": "index.js",
-    "scripts": {
-        "format": "prettier --check . --write",
-        "test": "jest"
-    },
     "keywords": [
         "cartesi",
         "rollups",
@@ -15,6 +10,11 @@
         "decoding",
         "codec"
     ],
+    "main": "index.js",
+    "scripts": {
+        "format": "prettier --check . --write",
+        "test": "jest"
+    },
     "author": "Guilherme Dantas",
     "license": "GPL-v3-only",
     "dependencies": {
