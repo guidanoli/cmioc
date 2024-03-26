@@ -101,7 +101,7 @@ decodeCommand
     .action((blob) => {
         try {
             const input = decodeInputBlob(blob);
-            console.log(JSON.stringify(input, stringifyBigInt));
+            console.log(JSON.stringify(input, stringifyBigInt, 4));
         } catch (e) {
             handleError(e);
         }
@@ -114,7 +114,7 @@ decodeCommand
     .action((blob) => {
         try {
             const output = decodeOutputBlob(blob);
-            console.log(JSON.stringify(output, stringifyBigInt));
+            console.log(JSON.stringify(output, stringifyBigInt, 4));
         } catch (e) {
             handleError(e);
         }
