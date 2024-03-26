@@ -1,6 +1,6 @@
 import { Inputs__factory, Outputs__factory } from "@cartesi/rollups";
 
-import { decodeFunctionData, Hex, Address } from "viem";
+import { decodeFunctionData, Hex, Address, isHex } from "viem";
 
 export interface Input {
     chainId: bigint;
@@ -84,5 +84,13 @@ export const decodeOutputBlob = (blob: Hex): Output => {
                 payload,
             };
         }
+    }
+};
+
+export const parseBlob = (blob: string): Hex => {
+    if (isHex(blob)) {
+        return blob;
+    } else {
+        throw new Error("blob is not in '0x' hex format");
     }
 };
