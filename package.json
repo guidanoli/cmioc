@@ -15,12 +15,12 @@
         "url": "https://github.com/guidanoli/io-decoder/issues"
     },
     "license": "GPL-v3-only",
+    "author": "Guilherme Dantas",
     "main": "index.js",
     "scripts": {
         "format": "prettier --check . --write",
         "test": "jest"
     },
-    "author": "Guilherme Dantas",
     "dependencies": {
         "@cartesi/rollups": "2.0.0-rc.1"
     },
