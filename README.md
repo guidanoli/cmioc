@@ -1,7 +1,8 @@
-# Decoding inputs and outputs
+# Cartesi Machine Input/Output Codec
 
-On the upcoming Cartesi Rollups SDK v2 release, inputs and outputs will be encoded as Solidity function calldata.
-The node will, through the GraphQL server, provide them in encoded form, which means someone has to decode them.
+In the upcoming v2 release of the Cartesi Rollups SDK, inputs and outputs will be encoded as Solidity function calldata.
+This repo aims to show front-end developers how inputs and outputs can be encoded or decoded using [`viem`](https://viem.sh/) and the contract ABIs exported by [`@cartesi/rollups`](https://www.npmjs.com/package/@cartesi/rollups).
+It also comes with a handy-dandy CLI tool for encoding and decoding of inputs and outputs.
 
 ## Dependencies
 
@@ -17,8 +18,8 @@ pnpm i
 
 ## CLI
 
-This package comes with a CLI tool called `cmioc`, which stands for "Cartesi Machine Input/Output Codec".
-Locally, you can run them with the following commands:
+Locally, you can run them with the following commands.
+If you install this package globally, you can omit the `pnpm` part.
 
 ## Decoding inputs
 
