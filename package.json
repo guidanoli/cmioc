@@ -27,8 +27,7 @@
         "cmioc": "dist/bin/cmioc.js"
     },
     "scripts": {
-        "decode-input": "ts-node bin/decode-input.ts",
-        "decode-output": "ts-node bin/decode-output.ts",
+        "cmioc": "ts-node bin/cmioc.ts",
         "format": "prettier --check . --write",
         "prepack": "tsc",
         "test": "jest"
