@@ -15,8 +15,8 @@ dependencies:
     specifier: ^6.11.1
     version: 6.11.1
   viem:
-    specifier: ^2.9.0
-    version: 2.9.0(typescript@5.4.3)
+    specifier: ^2.9.2
+    version: 2.9.2(typescript@5.4.3)
 
 devDependencies:
   '@jest/globals':
@@ -2462,8 +2462,8 @@ packages:
       convert-source-map: 2.0.0
     dev: true
 
-  /viem@2.9.0(typescript@5.4.3):
-    resolution: {integrity: sha512-7jNrY9GY4aLGU2qX4/TCXpA9qR4PDx5ctQyJpxoh8jDmlV0Rh2FLlnJsgJs9sAB8cKbNafkRTYQtuMA3OOn0JA==}
+  /viem@2.9.2(typescript@5.4.3):
+    resolution: {integrity: sha512-GRakUTNiYE9W+vL+Be9JkQfzWnkczerHtSpEe2JR/jEGTYZAs4shrA4WLgiaVCI9JxpnduZhQfRWNvy2dlyP2g==}
     peerDependencies:
       typescript: '>=5.0.4'
     peerDependenciesMeta:
