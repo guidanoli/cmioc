@@ -5,24 +5,20 @@ import { decodeInputBlob, decodeOutputBlob, parseBlob } from "../src";
 
 const program = new Command();
 
-const handleError = (e : any) => {
+const handleError = (e: any) => {
     if (e instanceof BaseError) {
         console.error(e.shortMessage);
     } else {
         console.error(e);
     }
     process.exit(1);
-}
+};
 
-program
-    .name("cmioc")
-    .version("0.1.0")
-    .description("Cartesi Machine I/O Codec");
+program.name("cmioc").version("0.1.0").description("Cartesi Machine I/O Codec");
 
 const decodeCommand = program.command("decode");
 
-decodeCommand
-    .description("Decodes a blob");
+decodeCommand.description("Decodes a blob");
 
 decodeCommand
     .command("input")
