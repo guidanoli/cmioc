@@ -1,6 +1,6 @@
 import { readFileSync } from "fs";
 import { Command, InvalidArgumentError } from "@commander-js/extra-typings";
-import { Address, BaseError, Hex, isAddress, isHex } from "viem";
+import { Address, BaseError, Hex, isAddress, isHex, toHex } from "viem";
 
 import {
     encodeInputBlob,
@@ -48,8 +48,12 @@ const parseHex = (value: string): Hex => {
     }
 };
 
-const readFromStdin = (): string => {
-    return readFileSync(0, "utf8").trim();
+const readHexFromStdin = (binary: boolean): Hex => {
+    if (binary) {
+        return toHex(readFileSync(0));
+    } else {
+        return parseHex(readFileSync(0, "utf8").trim());
+    }
 };
 
 const stringifyBigInt = (_k: any, v: any): string => {
@@ -144,9 +148,10 @@ decodeCommand
     .command("input")
     .description("Decodes an input blob")
     .argument("[blob]", "blob (if absent, reads from stdin)", parseHex)
-    .action((blob) => {
+    .option("-b, --binary", "read from stdin as binary data", false)
+    .action((blob, { binary }) => {
         try {
-            const input = decodeInputBlob(blob ?? parseHex(readFromStdin()));
+            const input = decodeInputBlob(blob ?? readHexFromStdin(binary));
             console.log(toJSON(input));
         } catch (e) {
             handleError(e);
@@ -157,9 +162,10 @@ decodeCommand
     .command("output")
     .description("Decodes an output blob")
     .argument("[blob]", "blob (if absent, reads from stdin)", parseHex)
-    .action((blob) => {
+    .option("-b, --binary", "read from stdin as binary data", false)
+    .action((blob, { binary }) => {
         try {
-            const output = decodeOutputBlob(blob ?? parseHex(readFromStdin()));
+            const output = decodeOutputBlob(blob ?? readHexFromStdin(binary));
             console.log(toJSON(output));
         } catch (e) {
             handleError(e);
