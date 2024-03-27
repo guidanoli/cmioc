@@ -1,4 +1,4 @@
-import { readFileSync } from "fs";
+import { readFileSync, writeFileSync } from "fs";
 import { Command, InvalidArgumentError } from "@commander-js/extra-typings";
 import { Address, BaseError, Hex, isAddress, isHex, toHex } from "viem";
 
@@ -56,6 +56,10 @@ const readHexFromStdin = (binary: boolean): Hex => {
     }
 };
 
+const writeHexToStdout = (hex: Hex) => {
+    writeFileSync(1, hex);
+};
+
 const stringifyBigInt = (_k: any, v: any): string => {
     return typeof v === "bigint" ? v.toString() : v;
 };
@@ -101,7 +105,7 @@ encodeCommand
     )
     .requiredOption("--payload <bytes>", "the payload of the input", parseHex)
     .action((input) => {
-        console.log(encodeInputBlob(input));
+        writeHexToStdout(encodeInputBlob(input));
     });
 
 encodeCommand
@@ -119,7 +123,7 @@ encodeCommand
     )
     .requiredOption("--payload <bytes>", "the destination address", parseHex)
     .action((voucher) => {
-        console.log(
+        writeHexToStdout(
             encodeOutputBlob({
                 type: "voucher",
                 ...voucher,
@@ -132,7 +136,7 @@ encodeCommand
     .description("Encodes a notice blob")
     .requiredOption("--payload <bytes>", "the destination address", parseHex)
     .action((notice) => {
-        console.log(
+        writeHexToStdout(
             encodeOutputBlob({
                 type: "notice",
                 ...notice,
