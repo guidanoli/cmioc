@@ -48,6 +48,10 @@ const parseHex = (value: string): Hex => {
     }
 };
 
+const readFromStdin = (): string => {
+    return readFileSync(0, "utf8").trim();
+};
+
 const stringifyBigInt = (_k: any, v: any): string => {
     return typeof v === "bigint" ? v.toString() : v;
 };
@@ -138,9 +142,7 @@ decodeCommand
     .argument("[blob]", "blob", parseHex)
     .action((blob) => {
         try {
-            const input = decodeInputBlob(
-                blob ?? parseHex(readFileSync(0, "utf8").trim()),
-            );
+            const input = decodeInputBlob(blob ?? parseHex(readFromStdin()));
             console.log(JSON.stringify(input, stringifyBigInt, 4));
         } catch (e) {
             handleError(e);
@@ -153,9 +155,7 @@ decodeCommand
     .argument("[blob]", "blob", parseHex)
     .action((blob) => {
         try {
-            const output = decodeOutputBlob(
-                blob ?? parseHex(readFileSync(0, "utf8").trim()),
-            );
+            const output = decodeOutputBlob(blob ?? parseHex(readFromStdin()));
             console.log(JSON.stringify(output, stringifyBigInt, 4));
         } catch (e) {
             handleError(e);
