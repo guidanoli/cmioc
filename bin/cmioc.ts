@@ -1,4 +1,3 @@
-import { writeFileSync } from "fs";
 import { Command, InvalidArgumentError } from "@commander-js/extra-typings";
 import {
     Address,
@@ -89,9 +88,9 @@ const readHexFromStdin = async (binary: boolean): Promise<Hex> => {
 
 const writeHexToStdout = (hex: Hex, binary: boolean) => {
     if (binary) {
-        writeFileSync(process.stdout.fd, hexToBytes(hex));
+        process.stdout.write(hexToBytes(hex));
     } else {
-        writeFileSync(process.stdout.fd, hex);
+        process.stdout.write(hex);
     }
 };
 
