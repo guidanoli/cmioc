@@ -153,7 +153,7 @@ cat voucher.txt | pnpm cmioc decode output
 #### From binary
 
 ```sh
-cat voucher.bin | pnpm cmioc decode output -- binary
+cat voucher.bin | pnpm cmioc decode output --binary
 ```
 
 Output:
