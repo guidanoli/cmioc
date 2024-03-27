@@ -18,8 +18,9 @@ pnpm i
 
 ## CLI
 
-Locally, you can run them with the following commands.
-If you install this package globally, you can omit the `pnpm` part.
+If you clone this repository, you can run `pnpm cmoic [args...]`.
+
+If, instead, you install the package, you can just run `cmoic [args...]`.
 
 ## Encoding inputs
 
