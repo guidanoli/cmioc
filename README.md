@@ -55,6 +55,12 @@ or
 cat input.txt | pnpm cmioc decode input
 ```
 
+### From binary
+
+```sh
+cat input.bin | pnpm cmioc decode input --binary
+```
+
 Output:
 
 ```json
@@ -67,12 +73,6 @@ Output:
     "index": "10",
     "payload": "0xdeadbeef"
 }
-```
-
-### From binary
-
-```sh
-cat input.bin | pnpm cmioc decode input --binary
 ```
 
 ## Encoding outputs
@@ -122,6 +122,12 @@ or
 cat notice.txt | pnpm cmioc decode output
 ```
 
+#### From binary
+
+```sh
+cat notice.bin | pnpm cmioc decode output --binary
+```
+
 Output:
 
 ```json
@@ -129,12 +135,6 @@ Output:
     "type": "notice",
     "payload": "0xdeadbeef"
 }
-```
-
-#### From binary
-
-```sh
-cat notice.bin | pnpm cmioc decode output --binary
 ```
 
 ### Vouchers
@@ -151,6 +151,12 @@ or
 cat voucher.txt | pnpm cmioc decode output
 ```
 
+#### From binary
+
+```sh
+cat voucher.bin | pnpm cmioc decode output -- binary
+```
+
 Output:
 
 ```json
@@ -160,12 +166,6 @@ Output:
     "value": "1000000000000000000",
     "payload": "0xfafafa"
 }
-```
-
-#### From binary
-
-```sh
-cat voucher.bin | pnpm cmioc decode output -- binary
 ```
 
 ## Tests
