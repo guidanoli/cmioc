@@ -90,7 +90,7 @@ const writeHexToStdout = (hex: Hex, binary: boolean) => {
     if (binary) {
         process.stdout.write(hexToBytes(hex));
     } else {
-        process.stdout.write(hex);
+        process.stdout.write(hex + "\n");
     }
 };
 
