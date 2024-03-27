@@ -1,4 +1,4 @@
-import { readFileSync, writeFileSync } from "fs";
+import { writeFileSync } from "fs";
 import { Command, InvalidArgumentError } from "@commander-js/extra-typings";
 import {
     Address,
@@ -59,11 +59,31 @@ const parseHex = (value: string): Hex => {
     }
 };
 
-const readHexFromStdin = (binary: boolean): Hex => {
+const readFromStdin = (): Promise<Buffer> => {
+    return new Promise((resolve, reject) => {
+        let inputData: Buffer[] = [];
+
+        process.stdin.on('data', (chunk) => {
+            inputData.push(chunk);
+        });
+
+        process.stdin.on('end', () => {
+            const inputBuffer = Buffer.concat(inputData);
+            resolve(inputBuffer);
+        });
+
+        process.stdin.on('error', (err) => {
+            reject(err);
+        });
+    });
+}
+
+const readHexFromStdin = async (binary: boolean): Promise<Hex> => {
+    const buffer = await readFromStdin();
     if (binary) {
-        return toHex(readFileSync(process.stdin.fd));
+        return toHex(buffer);
     } else {
-        return parseHex(readFileSync(process.stdin.fd, "utf8").trim());
+        return parseHex(buffer.toString().trim());
     }
 };
 
@@ -167,9 +187,9 @@ decodeCommand
     .description("Decodes an input blob")
     .argument("[blob]", "blob (if absent, reads from stdin)", parseHex)
     .option("-b, --binary", "read from stdin as binary data", false)
-    .action((blob, { binary }) => {
+    .action(async (blob, { binary }) => {
         try {
-            const input = decodeInputBlob(blob ?? readHexFromStdin(binary));
+            const input = decodeInputBlob(blob ?? await readHexFromStdin(binary));
             console.log(toJSON(input));
         } catch (e) {
             handleError(e);
@@ -181,9 +201,9 @@ decodeCommand
     .description("Decodes an output blob")
     .argument("[blob]", "blob (if absent, reads from stdin)", parseHex)
     .option("-b, --binary", "read from stdin as binary data", false)
-    .action((blob, { binary }) => {
+    .action(async (blob, { binary }) => {
         try {
-            const output = decodeOutputBlob(blob ?? readHexFromStdin(binary));
+            const output = decodeOutputBlob(blob ?? await readHexFromStdin(binary));
             console.log(toJSON(output));
         } catch (e) {
             handleError(e);
