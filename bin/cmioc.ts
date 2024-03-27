@@ -20,7 +20,7 @@ const parseBigInt = (value: string): bigint => {
         return BigInt(value);
     } catch (e) {
         if (e instanceof SyntaxError) {
-            throw new InvalidArgumentError("Not a valid integer");
+            throw new InvalidArgumentError(`Not an integer: ${value}`);
         } else {
             throw e;
         }
@@ -31,15 +31,15 @@ const parseAddress = (value: string): Address => {
     if (isAddress(value)) {
         return value;
     } else {
-        throw new InvalidArgumentError("Not an address");
+        throw new InvalidArgumentError(`Not an address: ${value}`);
     }
 };
 
-const parseHex = (blob: string): Hex => {
-    if (isHex(blob)) {
-        return blob;
+const parseHex = (value: string): Hex => {
+    if (isHex(value)) {
+        return value;
     } else {
-        throw new InvalidArgumentError("Not a hexstring");
+        throw new InvalidArgumentError(`Not a hexstring: ${value}`);
     }
 };
 
