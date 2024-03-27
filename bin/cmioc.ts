@@ -1,12 +1,23 @@
 import { readFileSync, writeFileSync } from "fs";
 import { Command, InvalidArgumentError } from "@commander-js/extra-typings";
-import { Address, BaseError, Hex, isAddress, isHex, toHex } from "viem";
+import {
+    Address,
+    BaseError,
+    Hex,
+    hexToBytes,
+    isAddress,
+    isHex,
+    toHex,
+} from "viem";
 
 import {
     encodeInputBlob,
     encodeOutputBlob,
     decodeInputBlob,
     decodeOutputBlob,
+    Input,
+    Notice,
+    Voucher,
 } from "../src";
 
 const program = new Command();
@@ -56,8 +67,12 @@ const readHexFromStdin = (binary: boolean): Hex => {
     }
 };
 
-const writeHexToStdout = (hex: Hex) => {
-    writeFileSync(1, hex);
+const writeHexToStdout = (hex: Hex, binary: boolean) => {
+    if (binary) {
+        writeFileSync(1, hexToBytes(hex));
+    } else {
+        writeFileSync(1, hex);
+    }
 };
 
 const stringifyBigInt = (_k: any, v: any): string => {
@@ -104,8 +119,11 @@ encodeCommand
         parseBigInt,
     )
     .requiredOption("--payload <bytes>", "the payload of the input", parseHex)
-    .action((input) => {
-        writeHexToStdout(encodeInputBlob(input));
+    .option("-b, --binary", "write to stdout as binary data", false)
+    .action((options) => {
+        const input: Input = { ...options };
+        const { binary } = options;
+        writeHexToStdout(encodeInputBlob(input), binary);
     });
 
 encodeCommand
@@ -122,26 +140,22 @@ encodeCommand
         parseBigInt,
     )
     .requiredOption("--payload <bytes>", "the destination address", parseHex)
-    .action((voucher) => {
-        writeHexToStdout(
-            encodeOutputBlob({
-                type: "voucher",
-                ...voucher,
-            }),
-        );
+    .option("-b, --binary", "write to stdout as binary data", false)
+    .action((options) => {
+        const voucher: Voucher = { type: "voucher", ...options };
+        const { binary } = options;
+        writeHexToStdout(encodeOutputBlob(voucher), binary);
     });
 
 encodeCommand
     .command("notice")
     .description("Encodes a notice blob")
     .requiredOption("--payload <bytes>", "the destination address", parseHex)
-    .action((notice) => {
-        writeHexToStdout(
-            encodeOutputBlob({
-                type: "notice",
-                ...notice,
-            }),
-        );
+    .option("-b, --binary", "write to stdout as binary data", false)
+    .action((options) => {
+        const notice: Notice = { type: "notice", ...options };
+        const { binary } = options;
+        writeHexToStdout(encodeOutputBlob(notice), binary);
     });
 
 const decodeCommand = program.command("decode");
