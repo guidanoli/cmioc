@@ -1,6 +1,6 @@
 {
     "name": "@guidanoli/cmioc",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Cartesi Machine Input/Output Codec",
     "keywords": [
         "cartesi",
