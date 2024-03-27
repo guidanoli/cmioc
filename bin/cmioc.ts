@@ -19,6 +19,8 @@ import {
     Voucher,
 } from "../src";
 
+import { version } from "../package.json";
+
 const program = new Command();
 
 const handleError = (e: any) => {
@@ -102,7 +104,7 @@ const toJSON = (value: any): string => {
     return JSON.stringify(value, stringifyBigInt, 4);
 };
 
-program.name("cmioc").version("0.1.0").description("Cartesi Machine I/O Codec");
+program.name("cmioc").version(version).description("Cartesi Machine I/O Codec");
 
 const encodeCommand = program.command("encode");
 
