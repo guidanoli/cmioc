@@ -26,7 +26,7 @@ If, instead, you install the package, you can just run `cmoic [args...]`.
 
 ```sh
 pnpm cmioc encode input \
-    --chain-id 1
+    --chain-id 1 \
     --app-contract 0x70ac08179605AF2D9e75782b8DEcDD3c22aA4D0C \
     --msg-sender 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 \
     --block-number 42 \
