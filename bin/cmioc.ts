@@ -61,17 +61,17 @@ const parseHex = (value: string): Hex => {
 
 const readHexFromStdin = (binary: boolean): Hex => {
     if (binary) {
-        return toHex(readFileSync(0));
+        return toHex(readFileSync(process.stdin.fd));
     } else {
-        return parseHex(readFileSync(0, "utf8").trim());
+        return parseHex(readFileSync(process.stdin.fd, "utf8").trim());
     }
 };
 
 const writeHexToStdout = (hex: Hex, binary: boolean) => {
     if (binary) {
-        writeFileSync(1, hexToBytes(hex));
+        writeFileSync(process.stdout.fd, hexToBytes(hex));
     } else {
-        writeFileSync(1, hex);
+        writeFileSync(process.stdout.fd, hex);
     }
 };
 
