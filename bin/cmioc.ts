@@ -143,7 +143,7 @@ decodeCommand.description("Decodes a blob");
 decodeCommand
     .command("input")
     .description("Decodes an input blob")
-    .argument("[blob]", "blob", parseHex)
+    .argument("[blob]", "blob (if absent, reads from stdin)", parseHex)
     .action((blob) => {
         try {
             const input = decodeInputBlob(blob ?? parseHex(readFromStdin()));
@@ -156,7 +156,7 @@ decodeCommand
 decodeCommand
     .command("output")
     .description("Decodes an output blob")
-    .argument("[blob]", "blob", parseHex)
+    .argument("[blob]", "blob (if absent, reads from stdin)", parseHex)
     .action((blob) => {
         try {
             const output = decodeOutputBlob(blob ?? parseHex(readFromStdin()));
