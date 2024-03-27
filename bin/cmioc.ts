@@ -56,6 +56,10 @@ const stringifyBigInt = (_k: any, v: any): string => {
     return typeof v === "bigint" ? v.toString() : v;
 };
 
+const toJSON = (value: any): string => {
+    return JSON.stringify(value, stringifyBigInt, 4);
+};
+
 program.name("cmioc").version("0.1.0").description("Cartesi Machine I/O Codec");
 
 const encodeCommand = program.command("encode");
@@ -143,7 +147,7 @@ decodeCommand
     .action((blob) => {
         try {
             const input = decodeInputBlob(blob ?? parseHex(readFromStdin()));
-            console.log(JSON.stringify(input, stringifyBigInt, 4));
+            console.log(toJSON(input));
         } catch (e) {
             handleError(e);
         }
@@ -156,7 +160,7 @@ decodeCommand
     .action((blob) => {
         try {
             const output = decodeOutputBlob(blob ?? parseHex(readFromStdin()));
-            console.log(JSON.stringify(output, stringifyBigInt, 4));
+            console.log(toJSON(output));
         } catch (e) {
             handleError(e);
         }
