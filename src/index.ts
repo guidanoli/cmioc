@@ -73,8 +73,6 @@ export const decodeInputBlob = (blob: Hex): Input => {
                 payload,
             };
         }
-        default:
-            throw new Error("Invalid input blob");
     }
 };
 

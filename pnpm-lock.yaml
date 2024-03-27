@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@cartesi/rollups':
-    specifier: 2.0.0-rc.1
-    version: 2.0.0-rc.1
+    specifier: 2.0.0-rc.2
+    version: 2.0.0-rc.2
   '@commander-js/extra-typings':
     specifier: ^12.0.1
     version: 12.0.1(commander@12.0.0)
@@ -389,8 +389,9 @@ packages:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
     dev: true
 
-  /@cartesi/rollups@2.0.0-rc.1:
-    resolution: {integrity: sha512-shNTfgN+550RaDhOcor0xoRUjc/AT31H5/nXE2QbgzAbT77fv9cEeHWqK3JUeJB9qj4PmeTQB+eVdfeoGosh2w==}
+  /@cartesi/rollups@2.0.0-rc.2:
+    resolution: {integrity: sha512-BQ7zx8b651tCqBI0JnGcWkuwc9olxEj3Uoi0/vK4mz66yeWh41XM3ApqH5P49J5tyCZ38DC6mJsSqjgplRQzLQ==}
+    requiresBuild: true
     dependencies:
       '@cartesi/util': 6.1.0
       '@openzeppelin/contracts': 5.0.0
