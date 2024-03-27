@@ -2,7 +2,12 @@ import { readFileSync } from "fs";
 import { Command, InvalidArgumentError } from "@commander-js/extra-typings";
 import { Address, BaseError, Hex, isAddress, isHex } from "viem";
 
-import { encodeInputBlob, encodeOutputBlob, decodeInputBlob, decodeOutputBlob } from "../src";
+import {
+    encodeInputBlob,
+    encodeOutputBlob,
+    decodeInputBlob,
+    decodeOutputBlob,
+} from "../src";
 
 const program = new Command();
 
@@ -44,24 +49,44 @@ const parseHex = (value: string): Hex => {
 };
 
 const stringifyBigInt = (_k: any, v: any): string => {
-    return typeof v === 'bigint' ? v.toString() : v;
-}
+    return typeof v === "bigint" ? v.toString() : v;
+};
 
 program.name("cmioc").version("0.1.0").description("Cartesi Machine I/O Codec");
 
 const encodeCommand = program.command("encode");
 
-encodeCommand.description("Encodes a blob")
+encodeCommand.description("Encodes a blob");
 
 encodeCommand
     .command("input")
     .description("Encodes an input blob")
     .requiredOption("--chain-id <uint256>", "the chain ID", parseBigInt)
-    .requiredOption("--app-contract <address>", "the application contract address", parseAddress)
-    .requiredOption("--msg-sender <address>", "the address of who sent the input", parseAddress)
-    .requiredOption("--block-number <uint256>", "the number of the block", parseBigInt)
-    .requiredOption("--block-timestamp <uint256>", "the timestamp of the block", parseBigInt)
-    .requiredOption("--index <uint256>", "the index of the input in the input box", parseBigInt)
+    .requiredOption(
+        "--app-contract <address>",
+        "the application contract address",
+        parseAddress,
+    )
+    .requiredOption(
+        "--msg-sender <address>",
+        "the address of who sent the input",
+        parseAddress,
+    )
+    .requiredOption(
+        "--block-number <uint256>",
+        "the number of the block",
+        parseBigInt,
+    )
+    .requiredOption(
+        "--block-timestamp <uint256>",
+        "the timestamp of the block",
+        parseBigInt,
+    )
+    .requiredOption(
+        "--index <uint256>",
+        "the index of the input in the input box",
+        parseBigInt,
+    )
     .requiredOption("--payload <bytes>", "the payload of the input", parseHex)
     .action((input) => {
         console.log(encodeInputBlob(input));
@@ -70,14 +95,24 @@ encodeCommand
 encodeCommand
     .command("voucher")
     .description("Encodes a voucher blob")
-    .requiredOption("--destination <address>", "the destination address", parseAddress)
-    .requiredOption("--value <uint256>", "the amount of Wei to be passed along the call", parseBigInt)
+    .requiredOption(
+        "--destination <address>",
+        "the destination address",
+        parseAddress,
+    )
+    .requiredOption(
+        "--value <uint256>",
+        "the amount of Wei to be passed along the call",
+        parseBigInt,
+    )
     .requiredOption("--payload <bytes>", "the destination address", parseHex)
     .action((voucher) => {
-        console.log(encodeOutputBlob({
-            type: "voucher",
-            ...voucher
-        }));
+        console.log(
+            encodeOutputBlob({
+                type: "voucher",
+                ...voucher,
+            }),
+        );
     });
 
 encodeCommand
@@ -85,10 +120,12 @@ encodeCommand
     .description("Encodes a notice blob")
     .requiredOption("--payload <bytes>", "the destination address", parseHex)
     .action((notice) => {
-        console.log(encodeOutputBlob({
-            type: "notice",
-            ...notice
-        }));
+        console.log(
+            encodeOutputBlob({
+                type: "notice",
+                ...notice,
+            }),
+        );
     });
 
 const decodeCommand = program.command("decode");
@@ -101,7 +138,9 @@ decodeCommand
     .argument("[blob]", "blob", parseHex)
     .action((blob) => {
         try {
-            const input = decodeInputBlob(blob ?? parseHex(readFileSync(0, "utf8").trim()));
+            const input = decodeInputBlob(
+                blob ?? parseHex(readFileSync(0, "utf8").trim()),
+            );
             console.log(JSON.stringify(input, stringifyBigInt, 4));
         } catch (e) {
             handleError(e);
@@ -114,7 +153,9 @@ decodeCommand
     .argument("[blob]", "blob", parseHex)
     .action((blob) => {
         try {
-            const output = decodeOutputBlob(blob ?? parseHex(readFileSync(0, "utf8").trim()));
+            const output = decodeOutputBlob(
+                blob ?? parseHex(readFileSync(0, "utf8").trim()),
+            );
             console.log(JSON.stringify(output, stringifyBigInt, 4));
         } catch (e) {
             handleError(e);
