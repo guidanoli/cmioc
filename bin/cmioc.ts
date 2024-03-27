@@ -38,7 +38,7 @@ const parseBlob = (blob: string): Hex => {
     if (isHex(blob)) {
         return blob;
     } else {
-        throw new Error("blob is not in '0x' hex format");
+        throw new InvalidArgumentError("blob is not in '0x' hex format");
     }
 };
 
