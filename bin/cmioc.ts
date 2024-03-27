@@ -62,20 +62,20 @@ const readFromStdin = (): Promise<Buffer> => {
     return new Promise((resolve, reject) => {
         let inputData: Buffer[] = [];
 
-        process.stdin.on('data', (chunk) => {
+        process.stdin.on("data", (chunk) => {
             inputData.push(chunk);
         });
 
-        process.stdin.on('end', () => {
+        process.stdin.on("end", () => {
             const inputBuffer = Buffer.concat(inputData);
             resolve(inputBuffer);
         });
 
-        process.stdin.on('error', (err) => {
+        process.stdin.on("error", (err) => {
             reject(err);
         });
     });
-}
+};
 
 const readHexFromStdin = async (binary: boolean): Promise<Hex> => {
     const buffer = await readFromStdin();
@@ -188,7 +188,9 @@ decodeCommand
     .option("-b, --binary", "read from stdin as binary data", false)
     .action(async (blob, { binary }) => {
         try {
-            const input = decodeInputBlob(blob ?? await readHexFromStdin(binary));
+            const input = decodeInputBlob(
+                blob ?? (await readHexFromStdin(binary)),
+            );
             console.log(toJSON(input));
         } catch (e) {
             handleError(e);
@@ -202,7 +204,9 @@ decodeCommand
     .option("-b, --binary", "read from stdin as binary data", false)
     .action(async (blob, { binary }) => {
         try {
-            const output = decodeOutputBlob(blob ?? await readHexFromStdin(binary));
+            const output = decodeOutputBlob(
+                blob ?? (await readHexFromStdin(binary)),
+            );
             console.log(toJSON(output));
         } catch (e) {
             handleError(e);
