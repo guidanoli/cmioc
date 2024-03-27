@@ -42,7 +42,7 @@ const parseBlob = (blob: string): Hex => {
     }
 };
 
-const stringifyBigInt = (_k: any, v: any) => {
+const stringifyBigInt = (_k: any, v: any): string => {
     return typeof v === 'bigint' ? v.toString() : v;
 }
 
