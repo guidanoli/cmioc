@@ -34,7 +34,7 @@ const parseAddress = (value: string): Address => {
     }
 };
 
-const parseBlob = (blob: string): Hex => {
+const parseHex = (blob: string): Hex => {
     if (isHex(blob)) {
         return blob;
     } else {
@@ -61,7 +61,7 @@ encodeCommand
     .requiredOption("--block-number <uint256>", "the number of the block", parseBigInt)
     .requiredOption("--block-timestamp <uint256>", "the timestamp of the block", parseBigInt)
     .requiredOption("--index <uint256>", "the index of the input in the input box", parseBigInt)
-    .requiredOption("--payload <bytes>", "the payload of the input", parseBlob)
+    .requiredOption("--payload <bytes>", "the payload of the input", parseHex)
     .action((input) => {
         console.log(encodeInputBlob(input));
     });
@@ -71,7 +71,7 @@ encodeCommand
     .description("Encodes a voucher blob")
     .requiredOption("--destination <address>", "the destination address", parseAddress)
     .requiredOption("--value <uint256>", "the amount of Wei to be passed along the call", parseBigInt)
-    .requiredOption("--payload <bytes>", "the destination address", parseBlob)
+    .requiredOption("--payload <bytes>", "the destination address", parseHex)
     .action((voucher) => {
         console.log(encodeOutputBlob({
             type: "voucher",
@@ -82,7 +82,7 @@ encodeCommand
 encodeCommand
     .command("notice")
     .description("Encodes a notice blob")
-    .requiredOption("--payload <bytes>", "the destination address", parseBlob)
+    .requiredOption("--payload <bytes>", "the destination address", parseHex)
     .action((notice) => {
         console.log(encodeOutputBlob({
             type: "notice",
@@ -97,7 +97,7 @@ decodeCommand.description("Decodes a blob");
 decodeCommand
     .command("input")
     .description("Decodes an input blob")
-    .argument("<blob>", "blob", parseBlob)
+    .argument("<blob>", "blob", parseHex)
     .action((blob) => {
         try {
             const input = decodeInputBlob(blob);
@@ -110,7 +110,7 @@ decodeCommand
 decodeCommand
     .command("output")
     .description("Decodes an output blob")
-    .argument("<blob>", "blob", parseBlob)
+    .argument("<blob>", "blob", parseHex)
     .action((blob) => {
         try {
             const output = decodeOutputBlob(blob);
