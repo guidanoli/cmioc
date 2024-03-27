@@ -1,3 +1,4 @@
+import { readFileSync } from "fs";
 import { Command, InvalidArgumentError } from "@commander-js/extra-typings";
 import { Address, BaseError, Hex, isAddress, isHex } from "viem";
 
@@ -97,10 +98,10 @@ decodeCommand.description("Decodes a blob");
 decodeCommand
     .command("input")
     .description("Decodes an input blob")
-    .argument("<blob>", "blob", parseHex)
+    .argument("[blob]", "blob", parseHex)
     .action((blob) => {
         try {
-            const input = decodeInputBlob(blob);
+            const input = decodeInputBlob(blob ?? parseHex(readFileSync(0, "utf8").trim()));
             console.log(JSON.stringify(input, stringifyBigInt, 4));
         } catch (e) {
             handleError(e);
@@ -110,10 +111,10 @@ decodeCommand
 decodeCommand
     .command("output")
     .description("Decodes an output blob")
-    .argument("<blob>", "blob", parseHex)
+    .argument("[blob]", "blob", parseHex)
     .action((blob) => {
         try {
-            const output = decodeOutputBlob(blob);
+            const output = decodeOutputBlob(blob ?? parseHex(readFileSync(0, "utf8").trim()));
             console.log(JSON.stringify(output, stringifyBigInt, 4));
         } catch (e) {
             handleError(e);
