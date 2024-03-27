@@ -5,7 +5,6 @@ import {
     decodeFunctionData,
     Hex,
     Address,
-    isHex,
 } from "viem";
 
 export interface Input {
