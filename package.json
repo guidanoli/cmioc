@@ -19,15 +19,16 @@
         "url": "https://github.com/guidanoli"
     },
     "files": [
+        "bin",
         "dist"
     ],
     "main": "dist/src/index.js",
     "types": "dist/src/index.d.ts",
     "bin": {
-        "cmioc": "dist/bin/cmioc.js"
+        "cmioc": "bin/cmioc.cjs"
     },
     "scripts": {
-        "cmioc": "ts-node bin/cmioc.ts",
+        "cmioc": "ts-node src/cli.ts",
         "format": "prettier --check . --write",
         "prepack": "tsc",
         "test": "jest"
