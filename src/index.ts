@@ -1,11 +1,6 @@
 import { Inputs__factory, Outputs__factory } from "@cartesi/rollups";
 
-import {
-    encodeFunctionData,
-    decodeFunctionData,
-    Hex,
-    Address,
-} from "viem";
+import { encodeFunctionData, decodeFunctionData, Hex, Address } from "viem";
 
 export interface Input {
     chainId: bigint;
