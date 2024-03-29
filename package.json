@@ -29,6 +29,7 @@
         "cmioc": "bin/cmioc.cjs"
     },
     "scripts": {
+        "clean": "rimraf src/*.js src/*.d.ts *.tsbuildinfo",
         "cmioc": "ts-node src/cli.ts",
         "format": "prettier --check . --write",
         "prepack": "tsc",
@@ -45,6 +46,7 @@
         "@jest/globals": "^29.7.0",
         "jest": "^29.7.0",
         "prettier": "^3.2.5",
+        "rimraf": "^5.0.5",
         "ts-jest": "^29.1.2",
         "ts-node": "^10.9.2",
         "typescript": "^5.4.3"
