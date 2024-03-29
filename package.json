@@ -29,6 +29,7 @@
         "cmioc": "bin/cmioc.cjs"
     },
     "scripts": {
+        "clean": "rimraf src/*.js src/*.d.ts *.tsbuildinfo",
         "cmioc": "ts-node src/cli.ts",
         "format": "prettier --check . --write",
         "prepack": "tsc",
