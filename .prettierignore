@@ -1,2 +1,4 @@
 pnpm-lock.yaml
 README.md
+src/*.js
+src/*.d.ts
