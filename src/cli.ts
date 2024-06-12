@@ -17,6 +17,7 @@ import {
     Input,
     Notice,
     Voucher,
+    DelegateCallVoucher,
 } from "../src";
 
 import { version } from "../package.json";
@@ -135,6 +136,11 @@ encodeCommand
         parseBigInt,
     )
     .requiredOption(
+        "--prev-randao <uint256>",
+        "the latest RANDAO mix of the post beacon state of the previous block",
+        parseBigInt,
+    )
+    .requiredOption(
         "--index <uint256>",
         "the index of the input in the input box",
         parseBigInt,
@@ -177,6 +183,25 @@ encodeCommand
         const notice: Notice = { type: "notice", ...options };
         const { binary } = options;
         writeHexToStdout(encodeOutputBlob(notice), binary);
+    });
+
+encodeCommand
+    .command("delegatecallvoucher")
+    .description("Encodes a delegate call voucher blob")
+    .requiredOption(
+        "--destination <address>",
+        "the destination address",
+        parseAddress,
+    )
+    .requiredOption("--payload <bytes>", "the destination address", parseHex)
+    .option("-b, --binary", "write to stdout as binary data", false)
+    .action((options) => {
+        const delegatecallvoucher: DelegateCallVoucher = {
+            type: "delegatecallvoucher",
+            ...options,
+        };
+        const { binary } = options;
+        writeHexToStdout(encodeOutputBlob(delegatecallvoucher), binary);
     });
 
 const decodeCommand = program.command("decode");
