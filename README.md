@@ -49,13 +49,13 @@ cmioc decode input 0x415bf363000000000000000000000000000000000000000000000000000
 or
 
 ```sh
-cat input.txt | pnpm cmioc decode input
+cat input.txt | cmioc decode input
 ```
 
 ### From binary
 
 ```sh
-cat input.bin | pnpm cmioc decode input --binary
+cat input.bin | cmioc decode input --binary
 ```
 
 Output:
@@ -148,13 +148,13 @@ cmioc decode output 0xc258d6e500000000000000000000000000000000000000000000000000
 or
 
 ```sh
-cat notice.txt | pnpm cmioc decode output
+cat notice.txt | cmioc decode output
 ```
 
 #### From binary
 
 ```sh
-cat notice.bin | pnpm cmioc decode output --binary
+cat notice.bin | cmioc decode output --binary
 ```
 
 Output:
@@ -177,13 +177,13 @@ cmioc decode output 0x237a816f000000000000000000000000f39fd6e51aad88f6f4ce6ab882
 or
 
 ```sh
-cat voucher.txt | pnpm cmioc decode output
+cat voucher.txt | cmioc decode output
 ```
 
 #### From binary
 
 ```sh
-cat voucher.bin | pnpm cmioc decode output --binary
+cat voucher.bin | cmioc decode output --binary
 ```
 
 Output:
@@ -208,13 +208,13 @@ cmioc decode output 0x10321e8b000000000000000000000000f39fd6e51aad88f6f4ce6ab882
 or
 
 ```sh
-cat delegatecallvoucher.txt | pnpm cmioc decode output
+cat delegatecallvoucher.txt | cmioc decode output
 ```
 
 #### From binary
 
 ```sh
-cat delegatecallvoucher.bin | pnpm cmioc decode output --binary
+cat delegatecallvoucher.bin | cmioc decode output --binary
 ```
 
 Output:
