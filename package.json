@@ -8,9 +8,9 @@
         "solidity",
         "codec"
     ],
-    "homepage": "https://github.com/guidanoli/io-decoder",
+    "homepage": "https://github.com/guidanoli/cmioc",
     "bugs": {
-        "url": "https://github.com/guidanoli/io-decoder/issues"
+        "url": "https://github.com/guidanoli/cmioc/issues"
     },
     "license": "GPL-v3-only",
     "author": {
@@ -19,21 +19,20 @@
         "url": "https://github.com/guidanoli"
     },
     "files": [
-        "bin",
-        "src/*.js",
-        "src/*.d.ts"
+        "dist"
     ],
     "main": "dist/src/index.js",
     "types": "dist/src/index.d.ts",
     "bin": {
-        "cmioc": "bin/cmioc.cjs"
+        "cmioc": "dist/src/cli.js"
     },
     "scripts": {
-        "clean": "rimraf src/*.js src/*.d.ts *.tsbuildinfo",
+        "build": "tsc",
+        "check-format": "prettier --check .",
+        "clean": "rimraf dist",
         "cmioc": "ts-node src/cli.ts",
         "format": "prettier --check . --write",
-        "check-format": "prettier --check .",
-        "prepack": "tsc",
+        "prepack": "pnpm run build",
         "test": "jest"
     },
     "dependencies": {
