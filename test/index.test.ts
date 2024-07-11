@@ -153,7 +153,7 @@ describe("decode/encode", () => {
                 break;
             }
             default:
-                throw new Error("expected output to be a voucher");
+                throw new Error("expected output to be a delegatecall voucher");
         }
     });
 
@@ -174,7 +174,7 @@ describe("decode/encode", () => {
                 break;
             }
             default:
-                throw new Error("expected output to be a voucher");
+                throw new Error("expected output to be a delegatecall voucher");
         }
     });
 });
