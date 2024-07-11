@@ -32,6 +32,7 @@
         "clean": "rimraf src/*.js src/*.d.ts *.tsbuildinfo",
         "cmioc": "ts-node src/cli.ts",
         "format": "prettier --check . --write",
+        "check-format": "prettier --check .",
         "prepack": "tsc",
         "test": "jest"
     },
