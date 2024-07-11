@@ -18,7 +18,7 @@ import {
     Notice,
     Voucher,
     DelegateCallVoucher,
-} from "../src";
+} from ".";
 
 import { version } from "../package.json";
 
