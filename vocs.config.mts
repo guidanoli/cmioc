@@ -95,6 +95,24 @@ export default defineConfig({
             ],
         },
     ],
+    socials: [
+        {
+            icon: "discord",
+            link: "https://discord.gg/pfXMwXDDfW",
+        },
+        {
+            icon: "github",
+            link: "https://github.com/guidanoli/cmioc",
+        },
+        {
+            icon: "warpcast",
+            link: "https://warpcast.com/cartesi",
+        },
+        {
+            icon: "x",
+            link: "https://www.x.com/cartesiproject",
+        },
+    ],
     editLink: {
         pattern:
             "https://github.com/guidanoli/cmioc/edit/main/docs/pages/:path",
