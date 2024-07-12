@@ -31,9 +31,9 @@
         "check-format": "prettier --check .",
         "clean": "rimraf dist",
         "cmioc": "ts-node src/cli.ts",
-        "docs:dev": "vocs dev",
-        "docs:build": "vocs build",
-        "docs:preview": "vocs preview",
+        "site:dev": "vocs dev",
+        "site:build": "vocs build",
+        "site:preview": "vocs preview",
         "format": "prettier --check . --write",
         "prepack": "pnpm run build",
         "test": "jest"
