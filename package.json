@@ -31,6 +31,9 @@
         "check-format": "prettier --check .",
         "clean": "rimraf dist",
         "cmioc": "ts-node src/cli.ts",
+        "docs:dev": "vocs dev",
+        "docs:build": "vocs build",
+        "docs:preview": "vocs preview",
         "format": "prettier --check . --write",
         "prepack": "pnpm run build",
         "test": "jest"
@@ -49,7 +52,8 @@
         "rimraf": "^5.0.5",
         "ts-jest": "^29.1.2",
         "ts-node": "^10.9.2",
-        "typescript": "^5.4.3"
+        "typescript": "^5.4.3",
+        "vocs": "1.0.0-alpha.52"
     },
     "engines": {
         "node": ">=16"

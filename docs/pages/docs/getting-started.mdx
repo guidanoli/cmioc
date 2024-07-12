@@ -1,0 +1,41 @@
+---
+title: Getting Started
+layout: docs
+---
+
+# Background
+
+On [Cartesi Rollups SDK v1],
+inputs and outputs had a very precise definition.
+The machine could only receive inputs with EVM metadata,
+and produce reports, notices, and vouchers.
+Modifying this interface would certainly impact the whole stack.
+
+In the upcoming Cartesi Rollups SDK v2 release,
+we're aiming to make this interface more flexible to changes,
+by encoding inputs and outputs with [Solidity Contract ABI].
+On-chain, inputs will be encoded by the [`InputBox`] contract,
+and outputs will be decoded by the [`Application`] contract.
+Inside the machine, the [`libcmt`] tool will help decoding inputs and encoding outputs.
+
+This change allows:
+
+- the [Cartesi Node] to treat inputs and outputs are opaque blobs
+- the application developer to specify new non-executable output types out-of-the-box
+- the Cartesi SDK developers to more easily add new types of executable outputs
+- the Cartesi SDK developers to more easily add new types of metadata to inputs
+
+# Purpose
+
+The purpose of `cmioc` is to easily encode and decode,
+through a CLI tool and TypeScript library,
+inputs and outputs for Cartesi Rollups SDK v2.
+It is targeted to Cartesi SDK developers
+and application developers in general.
+
+[Cartesi Node]: https://github.com/cartesi/rollups-node
+[Cartesi Rollups SDK v1]: https://github.com/cartesi/rollups/tree/release/1.0.x
+[Solidity Contract ABI]: https://docs.soliditylang.org/en/latest/abi-spec.html
+[`Application`]: https://github.com/cartesi/rollups-contracts/blob/v2.0.0-rc.4/contracts/dapp/Application.sol
+[`InputBox`]: https://github.com/cartesi/rollups-contracts/blob/v2.0.0-rc.4/contracts/inputs/InputBox.sol
+[`libcmt`]: https://github.com/cartesi/machine-emulator-tools/tree/v0.16.0-output-unification-v2-test5/sys-utils/libcmt
