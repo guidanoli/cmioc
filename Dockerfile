@@ -10,8 +10,7 @@ RUN pnpm install --prod --frozen-lockfile
 
 FROM base AS build
 RUN pnpm install --frozen-lockfile
-RUN pnpm run --filter @guidanoli/cmioc build
-RUN pnpm run --filter @guidanoli/cmioc-cli build
+RUN pnpm run-s build:core build:cli
 
 FROM base
 COPY --from=prod-deps /app/node_modules /app/node_modules
