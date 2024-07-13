@@ -73,7 +73,7 @@ jobs:
               uses: docker/metadata-action@v5
               with:
                   images: |
-                      ghcr.io/${{ repository_owner }}/${{ env.IMAGE_NAME }}
+                      ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}
                   tags: |
                       type=semver,pattern={{version}},value=${{ matrix.package.version }}
 
