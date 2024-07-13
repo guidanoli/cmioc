@@ -19,5 +19,9 @@
     },
     "prettier": {
         "tabWidth": 4
+    },
+    "engines": {
+        "node": ">=18",
+        "pnpm": ">=9"
     }
 }
