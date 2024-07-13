@@ -10,10 +10,13 @@ RUN pnpm install --prod --frozen-lockfile
 
 FROM base AS build
 RUN pnpm install --frozen-lockfile
-RUN pnpm run build
+RUN pnpm run-s build:core build:cli
 
 FROM base
 COPY --from=prod-deps /app/node_modules /app/node_modules
-COPY --from=build /app/dist /app/dist
+COPY --from=prod-deps /app/packages/core/node_modules /app/packages/core/node_modules
+COPY --from=build /app/apps/cli/node_modules /app/apps/cli/node_modules
+COPY --from=build /app/packages/core/dist /app/packages/core/dist
+COPY --from=build /app/apps/cli/dist /app/apps/cli/dist
 EXPOSE 8000
-ENTRYPOINT [ "node", "dist/src/cli.js" ]
+ENTRYPOINT [ "node", "apps/cli/dist/src/index.js" ]

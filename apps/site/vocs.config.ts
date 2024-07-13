@@ -3,6 +3,7 @@ import { defineConfig } from "vocs";
 export default defineConfig({
     title: "cmioc — Cartesi Machine Input/Output Codec",
     titleTemplate: "%s — cmioc Documentation",
+    rootDir: ".",
     sidebar: [
         {
             text: "Getting Started",
@@ -115,7 +116,7 @@ export default defineConfig({
     ],
     editLink: {
         pattern:
-            "https://github.com/guidanoli/cmioc/edit/main/docs/pages/:path",
+            "https://github.com/guidanoli/cmioc/edit/main/site/pages/:path",
         text: "Edit on GitHub",
     },
     iconUrl: {

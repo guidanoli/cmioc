@@ -1,0 +1,6 @@
+{
+    "buildCommand": "pnpm run-s build:core build:site",
+    "framework": "vite",
+    "installCommand": "pnpm install",
+    "outputDirectory": "apps/site/dist"
+}
