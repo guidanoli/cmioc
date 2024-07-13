@@ -45,29 +45,40 @@ jobs:
             matrix:
                 package: ${{ fromJson(needs.nodejs.outputs.publishedPackages) }}
 
-        if: ${{ needs.nodejs.outputs.published == 'true' && matrix.package.name == '@guidanoli/cmioc-cli' }}
+        if: ${{ needs.nodejs.outputs.published == 'true' }}
 
         permissions:
             packages: write
             contents: read
 
+        env:
+            IMAGE_NAME: ""
+
         steps:
+            - name: Set CLI image name
+              if: ${{ matrix.package.name == '@guidanoli/cmioc-cli' }}
+              run: echo "IMAGE_NAME=cmioc" >> $GITHUB_ENV
+
             - uses: actions/checkout@v4
+              if: ${{ env.IMAGE_NAME != '' }}
 
             - name: Set up Docker Buildx
+              if: ${{ env.IMAGE_NAME != '' }}
               id: setup_buildx
               uses: docker/setup-buildx-action@v3
 
             - name: Extract metadata from Git refs and GitHub events
+              if: ${{ env.IMAGE_NAME != '' }}
               id: extract_metadata
               uses: docker/metadata-action@v5
               with:
                   images: |
-                      ghcr.io/${{ github.repository }}
+                      ghcr.io/${{ repository_owner }}/${{ env.IMAGE_NAME }}
                   tags: |
                       type=semver,pattern={{version}},value=${{ matrix.package.version }}
 
             - name: Login to GitHub Container Registry
+              if: ${{ env.IMAGE_NAME != '' }}
               uses: docker/login-action@v3
               with:
                   registry: ghcr.io
@@ -75,6 +86,7 @@ jobs:
                   password: ${{ secrets.GITHUB_TOKEN }}
 
             - name: Build machine image and push it to GitHub Container Registry
+              if: ${{ env.IMAGE_NAME != '' }}
               uses: docker/build-push-action@v6
               with:
                   context: .
