@@ -1,0 +1,49 @@
+{
+    "name": "@guidanoli/cmioc-cli",
+    "version": "0.1.4",
+    "description": "Cartesi Machine Input/Output Codec CLI",
+    "keywords": [
+        "cartesi",
+        "rollups",
+        "solidity",
+        "codec",
+        "cli"
+    ],
+    "homepage": "https://github.com/guidanoli/cmioc",
+    "bugs": {
+        "url": "https://github.com/guidanoli/cmioc/issues"
+    },
+    "license": "GPL-v3-only",
+    "author": {
+        "name": "Guilherme Dantas",
+        "e-mail": "guidanoli@proton.me",
+        "url": "https://github.com/guidanoli"
+    },
+    "files": [
+        "dist"
+    ],
+    "bin": {
+        "cmioc": "dist/src/index.js"
+    },
+    "scripts": {
+        "build": "tsc",
+        "clean": "rimraf dist",
+        "prepack": "run-s build"
+    },
+    "dependencies": {
+        "@commander-js/extra-typings": "^12.0.1",
+        "@guidanoli/cmioc": "workspace:*",
+        "commander": "^12.0.0",
+        "ethers": "^6.11.1",
+        "viem": "^2.9.2"
+    },
+    "devDependencies": {
+        "@types/node": "^20.14.10",
+        "rimraf": "^5.0.5",
+        "ts-node": "^10.9.2",
+        "tsconfig": "workspace:*"
+    },
+    "engines": {
+        "node": ">=16"
+    }
+}

@@ -2,7 +2,7 @@ import { Inputs__factory, Outputs__factory } from "@cartesi/rollups";
 
 import { encodeFunctionData, decodeFunctionData, Hex, Address } from "viem";
 
-export interface Input {
+export type Input = {
     chainId: bigint;
     appContract: Address;
     msgSender: Address;
@@ -11,7 +11,7 @@ export interface Input {
     prevRandao: bigint;
     index: bigint;
     payload: Hex;
-}
+};
 
 export const encodeInputBlob = (input: Input): Hex => {
     const {
@@ -76,23 +76,23 @@ export const decodeInputBlob = (blob: Hex): Input => {
     }
 };
 
-export interface Notice {
+export type Notice = {
     type: "notice";
     payload: Hex;
-}
+};
 
-export interface Voucher {
+export type Voucher = {
     type: "voucher";
     destination: Address;
     value: bigint;
     payload: Hex;
-}
+};
 
-export interface DelegateCallVoucher {
+export type DelegateCallVoucher = {
     type: "delegatecallvoucher";
     destination: Address;
     payload: Hex;
-}
+};
 
 export type Output = Notice | Voucher | DelegateCallVoucher;
 

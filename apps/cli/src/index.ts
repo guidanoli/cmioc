@@ -1,4 +1,5 @@
 import { Command, InvalidArgumentError } from "@commander-js/extra-typings";
+
 import {
     Address,
     BaseError,
@@ -18,7 +19,7 @@ import {
     Notice,
     Voucher,
     DelegateCallVoucher,
-} from ".";
+} from "@guidanoli/cmioc";
 
 import { version } from "../package.json";
 

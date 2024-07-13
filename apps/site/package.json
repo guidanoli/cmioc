@@ -1,0 +1,15 @@
+{
+    "name": "site",
+    "version": "0.0.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vocs dev",
+        "build": "vocs build",
+        "preview": "vocs preview"
+    },
+    "devDependencies": {
+        "@guidanoli/cmioc": "workspace:*",
+        "vocs": "1.0.0-alpha.52"
+    }
+}
