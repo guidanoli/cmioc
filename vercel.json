@@ -1,6 +1,5 @@
 {
     "buildCommand": "pnpm run-s build:core build:site",
-    "framework": "vite",
     "installCommand": "pnpm install --frozen-lockfile",
     "outputDirectory": "apps/site/dist"
 }
