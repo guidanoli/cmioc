@@ -1,6 +1,12 @@
 {
     "private": true,
     "scripts": {
+        "build": "run-s build:packages build:apps",
+        "build:packages": "run-s build:core",
+        "build:apps": "run-p build:cli build:site",
+        "build:core": "pnpm run --filter @guidanoli/cmioc build",
+        "build:cli": "pnpm run --filter @guidanoli/cmioc-cli build",
+        "build:site": "pnpm run --filter site build",
         "check-format": "prettier --check .",
         "format": "prettier --check --write .",
         "test": "run-s test:core",
