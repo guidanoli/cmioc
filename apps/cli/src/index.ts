@@ -11,10 +11,10 @@ import {
 } from "viem";
 
 import {
-    encodeInputBlob,
-    encodeOutputBlob,
-    decodeInputBlob,
-    decodeOutputBlob,
+    encodeInput,
+    encodeOutput,
+    decodeInput,
+    decodeOutput,
     Input,
     Notice,
     Voucher,
