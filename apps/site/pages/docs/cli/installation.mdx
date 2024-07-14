@@ -7,22 +7,22 @@ You can install the CLI globally on your machine with your favorite package mana
 :::code-group
 
 ```bash [npm]
-npm install -g @guidanoli/cmioc
+npm install -g @guidanoli/cmioc-cli
 ```
 
 ```bash [pnpm]
-pnpm add -g @guidanoli/cmioc
+pnpm add -g @guidanoli/cmioc-cli
 ```
 
 ```bash [yarn]
-yarn global add @guidanoli/cmioc
+yarn global add @guidanoli/cmioc-cli
 ```
 
 :::
 
 Once installed, you can execute the CLI directly, like so:
 
-```sh
+```bash [Terminal]
 cmioc [args...]
 ```
 
@@ -30,19 +30,19 @@ cmioc [args...]
 
 Alternatively, you can also pull the CLI image from the [GitHub Container Registry].
 
-```sh
+```bash [Terminal]
 docker pull ghcr.io/guidanoli/cmioc
 ```
 
 Once pulled, you can execute the CLI through Docker, like so:
 
-```sh
+```bash [Terminal]
 docker run ghcr.io/guidanoli/cmioc [args...]
 ```
 
 If you want to pipe data into the CLI through `stdin`, don't forget the `-i` option.
 
-```sh
+```bash [Terminal]
 cat input.txt | docker run -i ghcr.io/guidanoli/cmioc [args...]
 ```
 

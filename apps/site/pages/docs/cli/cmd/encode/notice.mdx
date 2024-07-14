@@ -1,0 +1,38 @@
+# cmioc encode notice
+
+Encodes a notice according to the [`Notice`] function signature.
+
+:::code-group
+
+```bash [Command]
+cmioc encode notice \
+    --payload 0xdeadbeef
+```
+
+```txt [Output]
+0xc258d6e500000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000004deadbeef00000000000000000000000000000000000000000000000000000000
+```
+
+:::
+
+## Required options
+
+### --payload \<blob\>
+
+`bytes`
+
+The actual data being notified by the application.
+From the perspective of the smart contracts and the node, this is an opaque blob.
+The application is free to specify any encoding for notice payloads.
+
+## Other options
+
+### -b, --binary
+
+Write the blob to standard output in binary format.
+
+### -h, --help
+
+Display help for command.
+
+[`Notice`]: https://github.com/cartesi/rollups-contracts/blob/v2.0.0-rc.4/contracts/common/Outputs.sol#L10-L12

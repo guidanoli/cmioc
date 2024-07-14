@@ -17,36 +17,31 @@ export default defineConfig({
                     link: "/docs/cli/installation",
                 },
                 {
-                    text: "Encoding",
+                    text: "Commands",
                     items: [
                         {
-                            text: "Inputs",
-                            link: "/docs/cli/encoding/inputs",
+                            text: "encode input",
+                            link: "/docs/cli/cmd/encode/input",
                         },
                         {
-                            text: "Notices",
-                            link: "/docs/cli/encoding/notices",
+                            text: "encode notice",
+                            link: "/docs/cli/cmd/encode/notice",
                         },
                         {
-                            text: "Vouchers",
-                            link: "/docs/cli/encoding/vouchers",
+                            text: "encode voucher",
+                            link: "/docs/cli/cmd/encode/voucher",
                         },
                         {
-                            text: "DELEGATECALL Vouchers",
-                            link: "/docs/cli/encoding/delegatecall-vouchers",
-                        },
-                    ],
-                },
-                {
-                    text: "Decoding",
-                    items: [
-                        {
-                            text: "Inputs",
-                            link: "/docs/cli/decoding/inputs",
+                            text: "encode delegatecallvoucher",
+                            link: "/docs/cli/cmd/encode/delegatecallvoucher",
                         },
                         {
-                            text: "Outputs",
-                            link: "/docs/cli/decoding/outputs",
+                            text: "decode input",
+                            link: "/docs/cli/cmd/decode/input",
+                        },
+                        {
+                            text: "decode output",
+                            link: "/docs/cli/cmd/decode/output",
                         },
                     ],
                 },
@@ -60,36 +55,15 @@ export default defineConfig({
                     link: "/docs/ts/installation",
                 },
                 {
-                    text: "Encoding",
+                    text: "Types",
                     items: [
                         {
-                            text: "Inputs",
-                            link: "/docs/ts/encoding/inputs",
+                            text: "Input",
+                            link: "/docs/ts/types/input",
                         },
                         {
-                            text: "Notices",
-                            link: "/docs/ts/encoding/notices",
-                        },
-                        {
-                            text: "Vouchers",
-                            link: "/docs/ts/encoding/vouchers",
-                        },
-                        {
-                            text: "DELEGATECALL Vouchers",
-                            link: "/docs/ts/encoding/delegatecall-vouchers",
-                        },
-                    ],
-                },
-                {
-                    text: "Decoding",
-                    items: [
-                        {
-                            text: "Inputs",
-                            link: "/docs/ts/decoding/inputs",
-                        },
-                        {
-                            text: "Outputs",
-                            link: "/docs/ts/decoding/outputs",
+                            text: "Output",
+                            link: "/docs/ts/types/output",
                         },
                     ],
                 },
