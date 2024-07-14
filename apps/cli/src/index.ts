@@ -151,7 +151,7 @@ encodeCommand
     .action((options) => {
         const input: Input = { ...options };
         const { binary } = options;
-        writeHexToStdout(encodeInputBlob(input), binary);
+        writeHexToStdout(encodeInput(input), binary);
     });
 
 encodeCommand
@@ -172,7 +172,7 @@ encodeCommand
     .action((options) => {
         const voucher: Voucher = { type: "voucher", ...options };
         const { binary } = options;
-        writeHexToStdout(encodeOutputBlob(voucher), binary);
+        writeHexToStdout(encodeOutput(voucher), binary);
     });
 
 encodeCommand
@@ -183,7 +183,7 @@ encodeCommand
     .action((options) => {
         const notice: Notice = { type: "notice", ...options };
         const { binary } = options;
-        writeHexToStdout(encodeOutputBlob(notice), binary);
+        writeHexToStdout(encodeOutput(notice), binary);
     });
 
 encodeCommand
@@ -202,7 +202,7 @@ encodeCommand
             ...options,
         };
         const { binary } = options;
-        writeHexToStdout(encodeOutputBlob(delegatecallvoucher), binary);
+        writeHexToStdout(encodeOutput(delegatecallvoucher), binary);
     });
 
 const decodeCommand = program.command("decode");
@@ -216,9 +216,7 @@ decodeCommand
     .option("-b, --binary", "read from stdin as binary data", false)
     .action(async (blob, { binary }) => {
         try {
-            const input = decodeInputBlob(
-                blob ?? (await readHexFromStdin(binary)),
-            );
+            const input = decodeInput(blob ?? (await readHexFromStdin(binary)));
             console.log(toJSON(input));
         } catch (e) {
             handleError(e);
@@ -232,7 +230,7 @@ decodeCommand
     .option("-b, --binary", "read from stdin as binary data", false)
     .action(async (blob, { binary }) => {
         try {
-            const output = decodeOutputBlob(
+            const output = decodeOutput(
                 blob ?? (await readHexFromStdin(binary)),
             );
             console.log(toJSON(output));
