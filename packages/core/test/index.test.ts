@@ -1,9 +1,4 @@
-import {
-    encodeInputBlob,
-    encodeOutputBlob,
-    decodeInputBlob,
-    decodeOutputBlob,
-} from "../src";
+import { encodeInput, encodeOutput, decodeInput, decodeOutput } from "../src";
 
 import { describe, expect, test } from "@jest/globals";
 
@@ -12,9 +7,9 @@ describe("decode/encode", () => {
         const blob =
             "0x415bf363000000000000000000000000000000000000000000000000000000000000000100000000000000000000000070ac08179605af2d9e75782b8decdd3c22aa4d0c000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb92266000000000000000000000000000000000000000000000000000000000129bbad00000000000000000000000000000000000000000000000000000000660195215a41539c3688747a1a8c7811b98b0427331ff73aab018eb5c9921993d617f314000000000000000000000000000000000000000000000000000000000000002a00000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000004deadbeef00000000000000000000000000000000000000000000000000000000";
 
-        const input = decodeInputBlob(blob);
+        const input = decodeInput(blob);
 
-        expect(encodeInputBlob(input)).toEqual(blob);
+        expect(encodeInput(input)).toEqual(blob);
 
         expect(input.chainId).toEqual(1n);
         expect(input.appContract).toEqual(
@@ -36,9 +31,9 @@ describe("decode/encode", () => {
         const blob =
             "0x415bf363000000000000000000000000000000000000000000000000000000000000000100000000000000000000000070ac08179605af2d9e75782b8decdd3c22aa4d0c000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb92266000000000000000000000000000000000000000000000000000000000129bbad00000000000000000000000000000000000000000000000000000000660195215a41539c3688747a1a8c7811b98b0427331ff73aab018eb5c9921993d617f314000000000000000000000000000000000000000000000000000000000000002a00000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000";
 
-        const input = decodeInputBlob(blob);
+        const input = decodeInput(blob);
 
-        expect(encodeInputBlob(input)).toEqual(blob);
+        expect(encodeInput(input)).toEqual(blob);
 
         expect(input.chainId).toEqual(1n);
         expect(input.appContract).toEqual(
@@ -60,9 +55,9 @@ describe("decode/encode", () => {
         const blob =
             "0xc258d6e500000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000004deadbeef00000000000000000000000000000000000000000000000000000000";
 
-        const output = decodeOutputBlob(blob);
+        const output = decodeOutput(blob);
 
-        expect(encodeOutputBlob(output)).toEqual(blob);
+        expect(encodeOutput(output)).toEqual(blob);
 
         switch (output.type) {
             case "notice": {
@@ -78,9 +73,9 @@ describe("decode/encode", () => {
         const blob =
             "0xc258d6e500000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000000";
 
-        const output = decodeOutputBlob(blob);
+        const output = decodeOutput(blob);
 
-        expect(encodeOutputBlob(output)).toEqual(blob);
+        expect(encodeOutput(output)).toEqual(blob);
 
         switch (output.type) {
             case "notice": {
@@ -96,9 +91,9 @@ describe("decode/encode", () => {
         const blob =
             "0x237a816f000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000de0b6b3a764000000000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000003fafafa0000000000000000000000000000000000000000000000000000000000";
 
-        const output = decodeOutputBlob(blob);
+        const output = decodeOutput(blob);
 
-        expect(encodeOutputBlob(output)).toEqual(blob);
+        expect(encodeOutput(output)).toEqual(blob);
 
         switch (output.type) {
             case "voucher": {
@@ -118,9 +113,9 @@ describe("decode/encode", () => {
         const blob =
             "0x237a816f000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000de0b6b3a764000000000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000000";
 
-        const output = decodeOutputBlob(blob);
+        const output = decodeOutput(blob);
 
-        expect(encodeOutputBlob(output)).toEqual(blob);
+        expect(encodeOutput(output)).toEqual(blob);
 
         switch (output.type) {
             case "voucher": {
@@ -140,9 +135,9 @@ describe("decode/encode", () => {
         const blob =
             "0x10321e8b000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb9226600000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000003fafafa0000000000000000000000000000000000000000000000000000000000";
 
-        const output = decodeOutputBlob(blob);
+        const output = decodeOutput(blob);
 
-        expect(encodeOutputBlob(output)).toEqual(blob);
+        expect(encodeOutput(output)).toEqual(blob);
 
         switch (output.type) {
             case "delegatecallvoucher": {
@@ -161,9 +156,9 @@ describe("decode/encode", () => {
         const blob =
             "0x10321e8b000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb9226600000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000000";
 
-        const output = decodeOutputBlob(blob);
+        const output = decodeOutput(blob);
 
-        expect(encodeOutputBlob(output)).toEqual(blob);
+        expect(encodeOutput(output)).toEqual(blob);
 
         switch (output.type) {
             case "delegatecallvoucher": {

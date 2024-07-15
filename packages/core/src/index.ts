@@ -13,7 +13,7 @@ export type Input = {
     payload: Hex;
 };
 
-export const encodeInputBlob = (input: Input): Hex => {
+export const encodeInput = (input: Input): Hex => {
     const {
         chainId,
         appContract,
@@ -43,7 +43,7 @@ export const encodeInputBlob = (input: Input): Hex => {
     return blob;
 };
 
-export const decodeInputBlob = (blob: Hex): Input => {
+export const decodeInput = (blob: Hex): Input => {
     const { functionName, args } = decodeFunctionData({
         abi: Inputs__factory.abi,
         data: blob,
@@ -96,7 +96,7 @@ export type DelegateCallVoucher = {
 
 export type Output = Notice | Voucher | DelegateCallVoucher;
 
-export const encodeOutputBlob = (output: Output): Hex => {
+export const encodeOutput = (output: Output): Hex => {
     switch (output.type) {
         case "notice": {
             const { payload } = output;
@@ -134,7 +134,7 @@ export const encodeOutputBlob = (output: Output): Hex => {
     }
 };
 
-export const decodeOutputBlob = (blob: Hex): Output => {
+export const decodeOutput = (blob: Hex): Output => {
     const { functionName, args } = decodeFunctionData({
         abi: Outputs__factory.abi,
         data: blob,
