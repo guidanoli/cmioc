@@ -120,11 +120,11 @@ export default defineConfig({
         text: "Edit on GitHub",
     },
     iconUrl: {
-        dark: "/up-and-down-arrows-white.svg",
-        light: "/up-and-down-arrows-black.svg",
+        dark: "/icon-white.svg",
+        light: "/icon-black.svg",
     },
     logoUrl: {
-        dark: "/up-and-down-arrows-white.svg",
-        light: "/up-and-down-arrows-black.svg",
+        dark: "/logo-white.svg",
+        light: "/logo-black.svg",
     },
 });
