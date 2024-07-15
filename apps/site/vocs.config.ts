@@ -10,6 +10,45 @@ export default defineConfig({
             link: "/docs/getting-started",
         },
         {
+            text: "TypeScript",
+            items: [
+                {
+                    text: "Installation",
+                    link: "/docs/ts/installation",
+                },
+                {
+                    text: "API",
+                    items: [
+                        {
+                            text: "encodeInput",
+                            link: "/docs/ts/api/encodeInput",
+                        },
+                        {
+                            text: "encodeOutput",
+                            link: "/docs/ts/api/encodeOutput",
+                        },
+                        {
+                            text: "decodeInput",
+                            link: "/docs/ts/api/decodeInput",
+                        },
+                        {
+                            text: "decodeOutput",
+                            link: "/docs/ts/api/decodeOutput",
+                        },
+                    ],
+                },
+                {
+                    text: "Glossary",
+                    items: [
+                        {
+                            text: "Types",
+                            link: "/docs/ts/glossary/types",
+                        },
+                    ],
+                },
+            ],
+        },
+        {
             text: "CLI",
             items: [
                 {
@@ -42,28 +81,6 @@ export default defineConfig({
                         {
                             text: "decode output",
                             link: "/docs/cli/cmd/decode/output",
-                        },
-                    ],
-                },
-            ],
-        },
-        {
-            text: "TypeScript",
-            items: [
-                {
-                    text: "Installation",
-                    link: "/docs/ts/installation",
-                },
-                {
-                    text: "Types",
-                    items: [
-                        {
-                            text: "Input",
-                            link: "/docs/ts/types/input",
-                        },
-                        {
-                            text: "Output",
-                            link: "/docs/ts/types/output",
                         },
                     ],
                 },

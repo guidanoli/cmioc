@@ -1,0 +1,41 @@
+# encodeOutput
+
+Encodes an output according to the [`Outputs`] interface.
+
+```ts twoslash
+import { encodeOutput } from "@guidanoli/cmioc";
+
+const noticeBlob = encodeOutput({
+    type: "notice",
+    payload: "0xdeadbeef",
+});
+
+const voucherBlob = encodeOutput({
+    type: "voucher",
+    destination: "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    value: 1000000000000000000n,
+    payload: "0xdeadbeef",
+});
+
+const delegateCallVoucherBlob = encodeOutput({
+    type: "delegatecallvoucher",
+    destination: "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    payload: "0xdeadbeef",
+});
+```
+
+## Returns
+
+[`Hex`]
+
+The encoded output.
+
+## Parameters
+
+[`Output`]
+
+The output to be encoded.
+
+[`Hex`]: /docs/ts/glossary/types#hex
+[`Output`]: /docs/ts/glossary/types#output
+[`Outputs`]: https://github.com/cartesi/rollups-contracts/blob/v2.0.0-rc.4/contracts/common/Outputs.sol

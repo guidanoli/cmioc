@@ -1,0 +1,175 @@
+# Types
+
+## Address
+
+An Ethereum account address.
+
+Imported from [viem](https://viem.sh/docs/glossary/types#address).
+
+## DelegateCallVoucher
+
+A single-use permission to execute a [`DELEGATECALL`] instruction from the context of the [`Application`] contract.
+
+### type
+
+-   **Value:** `"delegatecallvoucher"{:ts}`
+
+### destination
+
+-   **Type:** [`Address`]
+
+The Ethereum address to be called, which is typically that of a smart contract.
+
+### payload
+
+-   **Type**: [`Hex`]
+
+The data to be passed along the call, which typically encodes a [Solidity function call].
+
+## Hex
+
+A "0x"-prefixed string.
+
+Imported from [viem](https://viem.sh/docs/glossary/types#hex).
+
+## Input
+
+An input added through the [`InputBox`] contract.
+
+### chainId
+
+-   **Type:** `bigint`
+
+The [EIP-155] ID of the chain to which the [`InputBox`] contract was deployed.
+
+### appContract
+
+-   **Type:** [`Address`]
+
+The address of the [`Application`] contract to which the input is destined.
+
+### msgSender
+
+-   **Type:** [`Address`]
+
+The address of the account that called the [`addInput`] function on the [`InputBox`] contract.
+In the case of a deposit input, this should be the address of the appropriate portal contract.
+
+### blockNumber
+
+-   **Type:** `bigint`
+
+The number of the block in which the input was added.
+
+### blockTimestamp
+
+-   **Type:** `bigint`
+
+The timestamp of the block in which the input was added.
+
+### prevRandao
+
+-   **Type:** `bigint`
+
+The latest RANDAO mix of the post beacon state of the previous block.
+See [EIP-4399] for notes on how to safely use this value as a source of randomness.
+
+### index
+
+-   **Type:** `bigint`
+
+The zero-based index of the input in the input box of the application.
+
+### payload
+
+-   **Type**: [`Hex`]
+
+The actual data being transmitted to the application.
+From the perspective of the smart contracts and the node, this is an opaque blob.
+The application is free to specify any encoding for input payloads.
+
+## Notice
+
+A piece of verifiable information.
+
+### type
+
+-   **Value:** `"notice"{:ts}`
+
+### payload
+
+-   **Type**: [`Hex`]
+
+The actual data being notified by the application.
+From the perspective of the smart contracts and the node, this is an opaque blob.
+The application is free to specify any encoding for notice payloads.
+
+## Output
+
+A union type of [`Notice`], [`Voucher`] and [`DelegateCallVoucher`].
+
+You can them apart through the `type` property.
+
+```ts twoslash
+import { Output } from "@guidanoli/cmioc";
+
+const handleOutput = (output: Output) => {
+    switch (output.type) {
+        case "notice": {
+            const { payload } = output;
+            break;
+        }
+        case "voucher": {
+            const { destination, value, payload } = output;
+            break;
+        }
+        case "delegatecallvoucher": {
+            const { destination, payload } = output;
+            break;
+        }
+    }
+};
+```
+
+## Voucher
+
+A single-use permission to execute a [`CALL`] instruction from the context of the [`Application`] contract.
+
+### type
+
+-   **Value:** `"voucher"{:ts}`
+
+### destination
+
+-   **Type:** [`Address`]
+
+The Ethereum address to be called.
+
+### value
+
+-   **Type:** `bigint`
+
+The amount of [Wei] to be passed along to the call.
+
+### payload
+
+-   **Type**: [`Hex`]
+
+The data to be passed along the call.
+If the destination address is that of a Solidity smart contract, this data generally encodes a [Solidity function call].
+
+[EIP-155]: https://eips.ethereum.org/EIPS/eip-155
+[EIP-4399]: https://eips.ethereum.org/EIPS/eip-4399
+[Solidity function call]: https://docs.soliditylang.org/en/latest/abi-spec.html#function-selector-and-argument-encoding
+[Wei]: https://ethereum.org/en/glossary/#wei
+[`Address`]: #address
+[`Application`]: https://github.com/cartesi/rollups-contracts/blob/v2.0.0-rc.4/contracts/dapp/Application.sol
+[`CALL`]: https://www.evm.codes/#f1?fork=cancun
+[`DELEGATECALL`]: https://www.evm.codes/#f4?fork=cancun
+[`DelegateCallVoucher`]: #delegatecallvoucher
+[`EvmAdvance`]: https://github.com/cartesi/rollups-contracts/blob/v2.0.0-rc.4/contracts/common/Inputs.sol#L9-L28
+[`Hex`]: #hex
+[`InputBox`]: https://github.com/cartesi/rollups-contracts/blob/v2.0.0-rc.4/contracts/inputs/InputBox.sol
+[`Notice`]: #notice
+[`Voucher`]: #voucher
+[`addInput`]: https://github.com/cartesi/rollups-contracts/blob/v2.0.0-rc.4/contracts/inputs/IInputBox.sol#L32-L40
