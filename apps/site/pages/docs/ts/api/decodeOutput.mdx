@@ -1,0 +1,31 @@
+# decodeOutput
+
+Decodes an output according to the [`Outputs`] function signature.
+
+```ts twoslash
+// @filename: blob.ts
+export const blob =
+    "0xc258d6e500000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000004deadbeef00000000000000000000000000000000000000000000000000000000";
+// @filename: a.ts
+// ---cut---
+import { blob } from "./blob";
+import { decodeOutput } from "@guidanoli/cmioc";
+
+const output = decodeOutput(blob); // [!code focus]
+```
+
+## Returns
+
+[`Output`]
+
+The decoded output.
+
+## Parameters
+
+[`Hex`]
+
+The encoded output.
+
+[`Hex`]: /docs/ts/glossary/types#hex
+[`Output`]: /docs/ts/glossary/types#output
+[`Outputs`]: https://github.com/cartesi/rollups-contracts/blob/v2.0.0-rc.4/contracts/common/Outputs.sol

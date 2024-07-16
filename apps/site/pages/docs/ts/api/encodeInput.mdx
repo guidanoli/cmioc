@@ -1,0 +1,34 @@
+# encodeInput
+
+Encodes an input according to the [`EvmAdvance`] function signature.
+
+```ts twoslash
+import { encodeInput } from "@guidanoli/cmioc";
+
+const blob = encodeInput({
+    chainId: 1n,
+    appContract: "0x70ac08179605AF2D9e75782b8DEcDD3c22aA4D0C",
+    msgSender: "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    blockNumber: 42n,
+    blockTimestamp: 70000n,
+    prevRandao: 123456789n,
+    index: 10n,
+    payload: "0xdeadbeef",
+});
+```
+
+## Returns
+
+[`Hex`]
+
+The encoded input.
+
+## Parameters
+
+[`Input`]
+
+The input to be encoded.
+
+[`Input`]: /docs/ts/glossary/types#input
+[`Hex`]: /docs/ts/glossary/types#hex
+[`EvmAdvance`]: https://github.com/cartesi/rollups-contracts/blob/v2.0.0-rc.4/contracts/common/Inputs.sol#L9-L28

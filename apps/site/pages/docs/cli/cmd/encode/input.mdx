@@ -1,0 +1,94 @@
+# cmioc encode input
+
+Encodes an input according to the [`EvmAdvance`] function signature.
+
+:::code-group
+
+```bash [Command]
+cmioc encode input \
+    --chain-id 1 \
+    --app-contract 0x70ac08179605AF2D9e75782b8DEcDD3c22aA4D0C \
+    --msg-sender 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266 \
+    --block-number 42 \
+    --block-timestamp 70000 \
+    --prev-randao 123456789 \
+    --index 10 \
+    --payload 0xdeadbeef
+```
+
+```txt [Output]
+0x415bf363000000000000000000000000000000000000000000000000000000000000000100000000000000000000000070ac08179605af2d9e75782b8decdd3c22aa4d0c000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb92266000000000000000000000000000000000000000000000000000000000000002a000000000000000000000000000000000000000000000000000000000001117000000000000000000000000000000000000000000000000000000000075bcd15000000000000000000000000000000000000000000000000000000000000000a00000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000004deadbeef00000000000000000000000000000000000000000000000000000000
+```
+
+:::
+
+## Required options
+
+### --chain-id \<id\>
+
+`uint256`
+
+The [EIP-155] ID of the chain to which the [`InputBox`] contract was deployed.
+
+### --app-contract \<address\>
+
+`address`
+
+The address of the [`Application`] contract to which the input is destined.
+
+### --msg-sender \<address\>
+
+`address`
+
+The address of the account that called the [`addInput`] function on the [`InputBox`] contract.
+In the case of a deposit input, this should be the address of the appropriate portal contract.
+
+### --block-number \<num\>
+
+`uint256`
+
+The number of the block in which the input was added.
+
+### --block-timestamp \<ts\>
+
+`uint256`
+
+The timestamp of the block in which the input was added.
+
+### --prev-randao \<num\>
+
+`uint256`
+
+The latest RANDAO mix of the post beacon state of the previous block.
+See [EIP-4399] for notes on how to safely use this value as a source of randomness.
+
+### --index \<num\>
+
+`uint256`
+
+The zero-based index of the input in the input box of the application.
+
+### --payload \<blob\>
+
+`bytes`
+
+The actual data being transmitted to the application.
+From the perspective of the smart contracts and the node, this is an opaque blob.
+The application is free to specify any encoding for input payloads.
+
+## Other options
+
+### -b, --binary
+
+Write the blob to standard output in binary format.
+
+### -h, --help
+
+Display help for command.
+
+[`addInput`]: https://github.com/cartesi/rollups-contracts/blob/v2.0.0-rc.4/contracts/inputs/IInputBox.sol#L32-L40
+[`Application`]: https://github.com/cartesi/rollups-contracts/blob/v2.0.0-rc.4/contracts/dapp/Application.sol
+[`EvmAdvance`]: https://github.com/cartesi/rollups-contracts/blob/v2.0.0-rc.4/contracts/common/Inputs.sol#L9-L28
+[`InputBox`]: https://github.com/cartesi/rollups-contracts/blob/v2.0.0-rc.4/contracts/inputs/InputBox.sol
+[EIP-4399]: https://eips.ethereum.org/EIPS/eip-4399
+[EIP-155]: https://eips.ethereum.org/EIPS/eip-155

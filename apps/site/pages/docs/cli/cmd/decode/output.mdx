@@ -1,0 +1,140 @@
+# cmioc decode output
+
+Decodes an output blob according to the [`Outputs`] interface.
+
+:::code-group
+
+```bash [Command]
+cmioc decode output
+```
+
+```json [Output JSON Schema]
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Output",
+    "definitions": {
+        "Hex": {
+            "type": "string",
+            "pattern": "^0x([0-9A-Fa-f]{2})*$"
+        },
+        "Address": {
+            "type": "string",
+            "pattern": "^0x[0-9A-Fa-f]{40}$"
+        },
+        "bigint": {
+            "type": "string",
+            "pattern": "^[0-9]+$"
+        }
+    },
+    "oneOf": [
+        {
+            "type": "object",
+            "properties": {
+                "type": { "const": "notice" },
+                "payload": { "$ref": "#/definitions/Hex" }
+            },
+            "required": ["type", "payload"],
+            "additionalProperties": false
+        },
+        {
+            "type": "object",
+            "properties": {
+                "type": { "const": "voucher" },
+                "destination": { "$ref": "#/definitions/Address" },
+                "value": { "$ref": "#/definitions/bigint" },
+                "payload": { "$ref": "#/definitions/Hex" }
+            },
+            "required": ["type", "destination", "value", "payload"],
+            "additionalProperties": false
+        },
+        {
+            "type": "object",
+            "properties": {
+                "type": { "const": "delegatecallvoucher" },
+                "destination": { "$ref": "#/definitions/Address" },
+                "payload": { "$ref": "#/definitions/Hex" }
+            },
+            "required": ["type", "destination", "payload"],
+            "additionalProperties": false
+        }
+    ]
+}
+```
+
+:::
+
+## Examples
+
+### Notice
+
+:::code-group
+
+```txt [Input]
+0xc258d6e500000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000000000000000000004deadbeef00000000000000000000000000000000000000000000000000000000
+```
+
+```json [Output]
+{
+    "type": "notice",
+    "payload": "0xdeadbeef"
+}
+```
+
+:::
+
+### Voucher
+
+:::code-group
+
+```txt [Input]
+0x237a816f000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000de0b6b3a764000000000000000000000000000000000000000000000000000000000000000000600000000000000000000000000000000000000000000000000000000000000003fafafa0000000000000000000000000000000000000000000000000000000000
+```
+
+```json [Output]
+{
+    "type": "voucher",
+    "destination": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "value": "1000000000000000000",
+    "payload": "0xfafafa"
+}
+```
+
+:::
+
+### Delegate Call Voucher
+
+:::code-group
+
+```txt [Input]
+0x10321e8b000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb9226600000000000000000000000000000000000000000000000000000000000000400000000000000000000000000000000000000000000000000000000000000003fafafa0000000000000000000000000000000000000000000000000000000000
+```
+
+```json [Output]
+{
+    "type": "delegatecallvoucher",
+    "destination": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "payload": "0xfafafa"
+}
+```
+
+:::
+
+## Positional arguments
+
+### [blob]
+
+`bytes`
+
+The output blob. If absent, reads from standard input.
+
+## Options
+
+### -b, --binary
+
+If a blob is not provided as argument, read from standard input in binary format.
+
+### -h, --help
+
+Display help for command.
+
+[`Outputs`]: https://github.com/cartesi/rollups-contracts/blob/v2.0.0-rc.4/contracts/common/Outputs.sol

@@ -10,49 +10,6 @@ export default defineConfig({
             link: "/docs/getting-started",
         },
         {
-            text: "CLI",
-            items: [
-                {
-                    text: "Installation",
-                    link: "/docs/cli/installation",
-                },
-                {
-                    text: "Encoding",
-                    items: [
-                        {
-                            text: "Inputs",
-                            link: "/docs/cli/encoding/inputs",
-                        },
-                        {
-                            text: "Notices",
-                            link: "/docs/cli/encoding/notices",
-                        },
-                        {
-                            text: "Vouchers",
-                            link: "/docs/cli/encoding/vouchers",
-                        },
-                        {
-                            text: "DELEGATECALL Vouchers",
-                            link: "/docs/cli/encoding/delegatecall-vouchers",
-                        },
-                    ],
-                },
-                {
-                    text: "Decoding",
-                    items: [
-                        {
-                            text: "Inputs",
-                            link: "/docs/cli/decoding/inputs",
-                        },
-                        {
-                            text: "Outputs",
-                            link: "/docs/cli/decoding/outputs",
-                        },
-                    ],
-                },
-            ],
-        },
-        {
             text: "TypeScript",
             items: [
                 {
@@ -60,36 +17,70 @@ export default defineConfig({
                     link: "/docs/ts/installation",
                 },
                 {
-                    text: "Encoding",
+                    text: "API",
                     items: [
                         {
-                            text: "Inputs",
-                            link: "/docs/ts/encoding/inputs",
+                            text: "encodeInput",
+                            link: "/docs/ts/api/encodeInput",
                         },
                         {
-                            text: "Notices",
-                            link: "/docs/ts/encoding/notices",
+                            text: "encodeOutput",
+                            link: "/docs/ts/api/encodeOutput",
                         },
                         {
-                            text: "Vouchers",
-                            link: "/docs/ts/encoding/vouchers",
+                            text: "decodeInput",
+                            link: "/docs/ts/api/decodeInput",
                         },
                         {
-                            text: "DELEGATECALL Vouchers",
-                            link: "/docs/ts/encoding/delegatecall-vouchers",
+                            text: "decodeOutput",
+                            link: "/docs/ts/api/decodeOutput",
                         },
                     ],
                 },
                 {
-                    text: "Decoding",
+                    text: "Glossary",
                     items: [
                         {
-                            text: "Inputs",
-                            link: "/docs/ts/decoding/inputs",
+                            text: "Types",
+                            link: "/docs/ts/glossary/types",
+                        },
+                    ],
+                },
+            ],
+        },
+        {
+            text: "CLI",
+            items: [
+                {
+                    text: "Installation",
+                    link: "/docs/cli/installation",
+                },
+                {
+                    text: "Commands",
+                    items: [
+                        {
+                            text: "encode input",
+                            link: "/docs/cli/cmd/encode/input",
                         },
                         {
-                            text: "Outputs",
-                            link: "/docs/ts/decoding/outputs",
+                            text: "encode notice",
+                            link: "/docs/cli/cmd/encode/notice",
+                        },
+                        {
+                            text: "encode voucher",
+                            link: "/docs/cli/cmd/encode/voucher",
+                        },
+                        {
+                            text: "encode delegatecallvoucher",
+                            link: "/docs/cli/cmd/encode/delegatecallvoucher",
+                        },
+                        {
+                            text: "decode input",
+                            link: "/docs/cli/cmd/decode/input",
+                        },
+                        {
+                            text: "decode output",
+                            link: "/docs/cli/cmd/decode/output",
                         },
                     ],
                 },
@@ -120,11 +111,11 @@ export default defineConfig({
         text: "Edit on GitHub",
     },
     iconUrl: {
-        dark: "/up-and-down-arrows-white.svg",
-        light: "/up-and-down-arrows-black.svg",
+        dark: "/icon-white.svg",
+        light: "/icon-black.svg",
     },
     logoUrl: {
-        dark: "/up-and-down-arrows-white.svg",
-        light: "/up-and-down-arrows-black.svg",
+        dark: "/logo-white.svg",
+        light: "/logo-black.svg",
     },
 });
