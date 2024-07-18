@@ -1,5 +1,12 @@
 # @guidanoli/cmioc-cli
 
+## 0.1.7
+
+### Patch Changes
+
+-   Updated dependencies [9f14f8a]
+    -   @guidanoli/cmioc@0.2.2
+
 ## 0.1.6
 
 ### Patch Changes
