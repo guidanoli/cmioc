@@ -1,0 +1,24 @@
+{
+    "name": "testsuite",
+    "version": "0.0.0",
+    "private": true,
+    "files": [
+        "dist"
+    ],
+    "main": "dist/src/index.js",
+    "types": "dist/src/index.d.ts",
+    "scripts": {
+        "build": "tsc",
+        "clean": "rimraf dist",
+        "prepack": "run-s build"
+    },
+    "dependencies": {
+        "@guidanoli/cmioc": "workspace:*",
+        "viem": "^2.9.2"
+    },
+    "devDependencies": {
+        "rimraf": "^5.0.5",
+        "tsconfig": "workspace:*",
+        "typescript": "catalog:"
+    }
+}
