@@ -1,5 +1,13 @@
 # @guidanoli/cmioc-cli
 
+## 0.1.6
+
+### Patch Changes
+
+-   c05ade0: Use Vercel app as package homepage
+-   Updated dependencies [c05ade0]
+    -   @guidanoli/cmioc@0.2.1
+
 ## 0.1.5
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
     "name": "@guidanoli/cmioc-cli",
-    "version": "0.1.5",
+    "version": "0.1.6",
     "description": "Cartesi Machine Input/Output Codec CLI",
     "keywords": [
         "cartesi",

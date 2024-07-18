@@ -1,5 +1,11 @@
 # @guidanoli/cmioc
 
+## 0.2.1
+
+### Patch Changes
+
+-   c05ade0: Use Vercel app as package homepage
+
 ## 0.2.0
 
 ### Minor Changes
