@@ -2,17 +2,18 @@
     "private": true,
     "scripts": {
         "build": "run-s build:packages build:apps",
-        "build:packages": "run-s build:core",
+        "build:packages": "run-s build:core build:testsuite",
         "build:apps": "run-p build:cli build:site",
         "build:core": "pnpm run --filter @guidanoli/cmioc build",
         "build:cli": "pnpm run --filter @guidanoli/cmioc-cli build",
         "build:site": "pnpm run --filter site build",
+        "build:testsuite": "pnpm run --filter testsuite build",
         "check-format": "prettier --check .",
         "format": "prettier --check --write .",
         "publish": "changeset publish",
         "release": "run-s build publish",
-        "test": "run-s test:core",
-        "test:core": "pnpm run --filter @guidanoli/cmioc test"
+        "test": "run-s build:packages test:core",
+        "test:core": "pnpm run --filter core-tests test"
     },
     "devDependencies": {
         "@changesets/cli": "^2.27.7",
