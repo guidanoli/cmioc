@@ -4,12 +4,14 @@
     "private": true,
     "type": "module",
     "scripts": {
+        "clean": "rimraf dist",
         "dev": "vocs dev",
         "build": "vocs build -o dist",
         "preview": "vocs preview"
     },
     "devDependencies": {
         "@guidanoli/cmioc": "workspace:*",
+        "rimraf": "^5.0.5",
         "vocs": "1.0.0-alpha.52"
     }
 }
