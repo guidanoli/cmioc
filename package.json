@@ -9,6 +9,8 @@
         "build:site": "pnpm run --filter site build",
         "check-format": "prettier --check .",
         "format": "prettier --check --write .",
+        "publish": "changeset publish",
+        "release": "run-s build publish",
         "test": "run-s test:core",
         "test:core": "pnpm run --filter @guidanoli/cmioc test"
     },
