@@ -8,7 +8,7 @@
         "solidity",
         "codec"
     ],
-    "homepage": "https://github.com/guidanoli/cmioc",
+    "homepage": "https://cmioc.vercel.app/",
     "bugs": {
         "url": "https://github.com/guidanoli/cmioc/issues"
     },
