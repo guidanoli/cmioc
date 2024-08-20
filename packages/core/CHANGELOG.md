@@ -1,5 +1,11 @@
 # @guidanoli/cmioc
 
+## 0.2.2
+
+### Patch Changes
+
+-   9f14f8a: Modularize test suite
+
 ## 0.2.1
 
 ### Patch Changes
