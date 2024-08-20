@@ -107,7 +107,7 @@ export default defineConfig({
     ],
     editLink: {
         pattern:
-            "https://github.com/guidanoli/cmioc/edit/main/site/pages/:path",
+            "https://github.com/guidanoli/cmioc/edit/main/apps/site/pages/:path",
         text: "Edit on GitHub",
     },
     iconUrl: {
