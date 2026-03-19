@@ -5,13 +5,15 @@ on:
         branches:
             - main
 
-permissions:
-    id-token: write
-
 jobs:
     nodejs:
         name: Node.js
         runs-on: ubuntu-latest
+
+        permissions:
+            contents: write
+            id-token: write
+            pull-requests: write
 
         outputs:
             published: ${{ steps.changeset.outputs.published }}
