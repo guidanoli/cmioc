@@ -1,5 +1,12 @@
 # @guidanoli/cmioc
 
+## 0.2.2
+
+### Patch Changes
+
+-   9f14f8a: Modularize test suite
+-   fdf111d: Bump `@cartesi/rollups` from 2.0.0-rc.3 to 2.2.0
+
 ## 0.2.1
 
 ### Patch Changes

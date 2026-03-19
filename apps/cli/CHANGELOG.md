@@ -1,5 +1,14 @@
 # @guidanoli/cmioc-cli
 
+## 0.1.7
+
+### Patch Changes
+
+-   fdf111d: Bump `@cartesi/rollups` from 2.0.0-rc.3 to 2.2.0
+-   Updated dependencies [9f14f8a]
+-   Updated dependencies [fdf111d]
+    -   @guidanoli/cmioc@0.2.2
+
 ## 0.1.6
 
 ### Patch Changes
