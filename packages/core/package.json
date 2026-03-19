@@ -24,10 +24,9 @@
     "main": "dist/src/index.js",
     "types": "dist/src/index.d.ts",
     "scripts": {
-        "build": "run-s codegen compile",
+        "build": "tsc",
         "codegen": "wagmi generate",
-        "compile": "tsc",
-        "clean": "rimraf dist src/rollups.ts",
+        "clean": "rimraf dist",
         "prepack": "run-s build"
     },
     "dependencies": {
