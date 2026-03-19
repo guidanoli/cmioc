@@ -1,4 +1,4 @@
-import { Inputs__factory, Outputs__factory } from "@cartesi/rollups";
+import { inputsAbi, outputsAbi } from "./rollups";
 
 import { encodeFunctionData, decodeFunctionData, Hex, Address } from "viem";
 
@@ -26,7 +26,7 @@ export const encodeInput = (input: Input): Hex => {
     } = input;
 
     const blob = encodeFunctionData({
-        abi: Inputs__factory.abi,
+        abi: inputsAbi,
         functionName: "EvmAdvance",
         args: [
             chainId,
@@ -45,7 +45,7 @@ export const encodeInput = (input: Input): Hex => {
 
 export const decodeInput = (blob: Hex): Input => {
     const { functionName, args } = decodeFunctionData({
-        abi: Inputs__factory.abi,
+        abi: inputsAbi,
         data: blob,
     });
 
@@ -102,7 +102,7 @@ export const encodeOutput = (output: Output): Hex => {
             const { payload } = output;
 
             const blob = encodeFunctionData({
-                abi: Outputs__factory.abi,
+                abi: outputsAbi,
                 functionName: "Notice",
                 args: [payload],
             });
@@ -113,7 +113,7 @@ export const encodeOutput = (output: Output): Hex => {
             const { destination, value, payload } = output;
 
             const blob = encodeFunctionData({
-                abi: Outputs__factory.abi,
+                abi: outputsAbi,
                 functionName: "Voucher",
                 args: [destination, value, payload],
             });
@@ -124,7 +124,7 @@ export const encodeOutput = (output: Output): Hex => {
             const { destination, payload } = output;
 
             const blob = encodeFunctionData({
-                abi: Outputs__factory.abi,
+                abi: outputsAbi,
                 functionName: "DelegateCallVoucher",
                 args: [destination, payload],
             });
@@ -136,7 +136,7 @@ export const encodeOutput = (output: Output): Hex => {
 
 export const decodeOutput = (blob: Hex): Output => {
     const { functionName, args } = decodeFunctionData({
-        abi: Outputs__factory.abi,
+        abi: outputsAbi,
         data: blob,
     });
 

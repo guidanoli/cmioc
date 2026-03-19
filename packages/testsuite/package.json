@@ -14,7 +14,7 @@
     },
     "dependencies": {
         "@guidanoli/cmioc": "workspace:*",
-        "viem": "^2.9.2"
+        "viem": "^2.43.0"
     },
     "devDependencies": {
         "rimraf": "^5.0.5",

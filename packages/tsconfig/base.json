@@ -2,6 +2,7 @@
     "compilerOptions": {
         "composite": true,
         "esModuleInterop": true,
+        "isolatedModules": true,
         "module": "nodenext",
         "moduleResolution": "nodenext",
         "skipLibCheck": true,
