@@ -24,16 +24,18 @@
     "main": "dist/src/index.js",
     "types": "dist/src/index.d.ts",
     "scripts": {
-        "build": "tsc",
-        "clean": "rimraf dist",
+        "build": "run-s codegen compile",
+        "codegen": "wagmi generate",
+        "compile": "tsc",
+        "clean": "rimraf dist src/rollups.ts",
         "prepack": "run-s build"
     },
     "dependencies": {
-        "@cartesi/rollups": "2.0.0-rc.3",
-        "ethers": "^6.11.1",
-        "viem": "^2.9.2"
+        "viem": "^2.43.0"
     },
     "devDependencies": {
+        "@cartesi/rollups": "2.2.0",
+        "@wagmi/cli": "^2.10.0",
         "rimraf": "^5.0.5",
         "tsconfig": "workspace:*",
         "typescript": "catalog:"
