@@ -1,5 +1,9 @@
 {
     "private": true,
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/guidanoli/cmioc"
+    },
     "scripts": {
         "build": "run-s build:packages build:apps",
         "build:apps": "run-p build:cli build:site",

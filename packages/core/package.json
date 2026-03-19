@@ -1,6 +1,10 @@
 {
     "name": "@guidanoli/cmioc",
     "version": "0.2.2",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/guidanoli/cmioc"
+    },
     "description": "Cartesi Machine Input/Output Codec",
     "keywords": [
         "cartesi",
