@@ -1,6 +1,12 @@
-node_modules
+*.md
 .git
 .github
 .gitignore
-*.md
+Dockerfile
+apps/site
 dist
+node_modules
+packages/core-tests
+packages/core/src/rollups.ts
+packages/testsuite
+vercel.json

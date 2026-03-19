@@ -2,8 +2,10 @@
 
 ARG FOUNDRY_VERSION=1.4.3
 
+FROM node:24-slim AS node-base
+
 #### base stage
-FROM node:24-slim AS base
+FROM node-base AS base
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 RUN corepack enable
@@ -11,7 +13,7 @@ COPY . /app
 WORKDIR /app
 
 #### prepare foundry
-FROM base AS foundry
+FROM node-base AS foundry
 ARG FOUNDRY_VERSION
 ARG TARGETARCH
 ARG TARGETOS
@@ -37,10 +39,7 @@ RUN pnpm install --prod --frozen-lockfile
 #### build project
 FROM base AS build
 RUN pnpm install --frozen-lockfile
-COPY --from=foundry /usr/local/bin/forge   /usr/local/bin/
-COPY --from=foundry /usr/local/bin/cast    /usr/local/bin/
-COPY --from=foundry /usr/local/bin/anvil   /usr/local/bin/
-COPY --from=foundry /usr/local/bin/chisel  /usr/local/bin/
+COPY --from=foundry /usr/local/bin/forge /usr/local/bin/
 RUN pnpm run-s build:core build:cli
 
 #### final stage
