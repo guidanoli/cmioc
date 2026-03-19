@@ -1,5 +1,13 @@
 # @guidanoli/cmioc-cli
 
+## 0.1.8
+
+### Patch Changes
+
+-   a536a83: Specify repository URL in `package.json` file
+-   Updated dependencies [a536a83]
+    -   @guidanoli/cmioc@0.2.3
+
 ## 0.1.7
 
 ### Patch Changes

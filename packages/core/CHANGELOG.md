@@ -1,5 +1,11 @@
 # @guidanoli/cmioc
 
+## 0.2.3
+
+### Patch Changes
+
+-   a536a83: Specify repository URL in `package.json` file
+
 ## 0.2.2
 
 ### Patch Changes
